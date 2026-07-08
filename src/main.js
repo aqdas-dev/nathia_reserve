@@ -160,11 +160,62 @@
     });
   }
 
+  // ---------- Scroll-driven FX: progress bar + image parallax ----------
+  function initScrollFX() {
+    var bar = document.getElementById("scroll-progress");
+    var parallax = reduceMotion
+      ? []
+      : Array.prototype.slice.call(document.querySelectorAll("[data-parallax-img]"));
+    if (!bar && !parallax.length) return;
+
+    var vh = window.innerHeight || 1;
+    var ticking = false;
+
+    function update() {
+      ticking = false;
+
+      if (bar) {
+        var doc = document.documentElement;
+        var max = doc.scrollHeight - doc.clientHeight;
+        var p = max > 0 ? doc.scrollTop / max : 0;
+        bar.style.transform = "scaleX(" + p.toFixed(4) + ")";
+      }
+
+      for (var i = 0; i < parallax.length; i++) {
+        var el = parallax[i];
+        var r = el.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > vh + 200) continue; // skip offscreen
+        var delta = (r.top + r.height / 2 - vh / 2) / vh; // ~ -0.5 .. 0.5
+        var y = (delta * 48).toFixed(2); // px of drift
+        el.style.transform = "translate3d(0," + y + "px,0) scale(1.14)";
+      }
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", function () {
+      vh = window.innerHeight || 1;
+      update();
+    });
+    update();
+  }
+
   function boot() {
     try {
       initForm();
     } catch (err) {
       /* form enhancement is optional */
+    }
+    try {
+      initSplitHeadings();
+    } catch (err) {
+      /* headings stay as-is if splitting fails */
     }
     try {
       initReveals();
@@ -178,6 +229,11 @@
       initSmooth();
     } catch (err) {
       /* smooth scroll is a progressive enhancement — ignore */
+    }
+    try {
+      initScrollFX();
+    } catch (err) {
+      /* progress bar / parallax are progressive enhancements — ignore */
     }
   }
 
