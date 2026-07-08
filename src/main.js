@@ -174,6 +174,10 @@
     function update() {
       ticking = false;
 
+      // Safety net: reveal anything now on screen, in case the
+      // IntersectionObserver didn't fire for it (seen on some browsers).
+      revealInView();
+
       if (bar) {
         var doc = document.documentElement;
         var max = doc.scrollHeight - doc.clientHeight;
@@ -228,11 +232,40 @@
       });
   }
 
+  // Keep autoplay videos actually playing (Chrome/Safari autoplay heuristics
+  // sometimes leave them paused). Retry on load and on first interaction.
+  function initVideos() {
+    var vids = document.querySelectorAll("video[autoplay]");
+    function playAll() {
+      vids.forEach(function (v) {
+        v.muted = true;
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      });
+    }
+    playAll();
+    vids.forEach(function (v) {
+      v.addEventListener("canplay", function () { playAll(); }, { once: true });
+    });
+    function kick() {
+      playAll();
+      window.removeEventListener("pointerdown", kick);
+      window.removeEventListener("touchstart", kick);
+    }
+    window.addEventListener("pointerdown", kick, { once: true });
+    window.addEventListener("touchstart", kick, { once: true });
+  }
+
   function boot() {
     try {
       initForm();
     } catch (err) {
       /* form enhancement is optional */
+    }
+    try {
+      initVideos();
+    } catch (err) {
+      /* video autoplay nudge is optional */
     }
     try {
       initSplitHeadings();
