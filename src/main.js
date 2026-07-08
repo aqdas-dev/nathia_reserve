@@ -7,9 +7,30 @@
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // ---------- Split headings into line-mask spans ----------
+  function initSplitHeadings() {
+    document.querySelectorAll("[data-split]").forEach(function (el) {
+      var base = parseInt(el.getAttribute("data-reveal-delay"), 10) || 0;
+      var lines = el.innerHTML.split(/<br\s*\/?>/i);
+      el.innerHTML = "";
+      lines.forEach(function (line, i) {
+        var mask = document.createElement("span");
+        mask.className = "line-mask";
+        var inner = document.createElement("span");
+        inner.className = "line-inner";
+        inner.innerHTML = line.trim();
+        inner.style.setProperty("--line-delay", base + i * 90 + "ms");
+        mask.appendChild(inner);
+        el.appendChild(mask);
+      });
+    });
+  }
+
   // ---------- Reveal on scroll ----------
   function initReveals() {
-    var els = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
+    var els = Array.prototype.slice.call(
+      document.querySelectorAll("[data-reveal], [data-split], [data-wipe]")
+    );
 
     // Stagger: children of a [data-reveal-stagger] group get incremental delays.
     document.querySelectorAll("[data-reveal-stagger]").forEach(function (group) {
