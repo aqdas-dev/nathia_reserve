@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* ---------- Aloevera Sans (self-hosted, Light weight only) ---------- */
+/* url() is resolved relative to the built CSS at dist/output.css.
+   The 100–900 range maps every requested weight to the Light file,
+   so font-medium / font-semibold utilities also render in Light. */
+@font-face {
+  font-family: "Aloevera";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../src/fonts/Aloevera-Light.otf") format("opentype");
+}
+
+@theme {
+  --font-display: "Aloevera", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Aloevera", ui-sans-serif, system-ui, sans-serif;
+  --color-gold: #9c7a45;
+}
+
+/* ---------- Lenis smooth scroll ---------- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* prevent any reveal transform from creating a horizontal scrollbar */
+body {
+  overflow-x: hidden;
+}
+
+/* ---------- Scroll-reveal animations ---------- */
+/* Hidden state only applies when JS is active (html.reveal-ready) and the
+   user hasn't asked for reduced motion — so content is never stuck invisible. */
+@media (prefers-reduced-motion: no-preference) {
+  html.reveal-ready [data-reveal] {
+    opacity: 0;
+    transform: translateY(2.5rem);
+    transition:
+      opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+  html.reveal-ready [data-reveal="zoom"] {
+    transform: scale(1.06);
+  }
+  html.reveal-ready [data-reveal="left"] {
+    transform: translateX(-2.5rem);
+  }
+  html.reveal-ready [data-reveal="right"] {
+    transform: translateX(2.5rem);
+  }
+  html.reveal-ready [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,77 @@
+/**
+ * The Nathia Reserve — "Let's Talk" form → Google Sheet + email notification.
+ *
+ * ─────────────────────────────────────────────────────────────────────────
+ * SETUP (do this while logged in as aqdas.ewebcraft@gmail.com)
+ * ─────────────────────────────────────────────────────────────────────────
+ * 1. Create a new Google Sheet (sheets.new). Name it e.g. "Nathia Enquiries".
+ * 2. In the sheet: Extensions ▸ Apps Script.
+ * 3. Delete any sample code, paste EVERYTHING in this file, and Save.
+ * 4. Click "Deploy" ▸ "New deployment".
+ *      - Select type (gear icon) ▸ "Web app".
+ *      - Description: anything (e.g. "Nathia form").
+ *      - Execute as:      Me (aqdas.ewebcraft@gmail.com)
+ *      - Who has access:  Anyone
+ *      - Click "Deploy", then "Authorize access" and allow the permissions.
+ * 5. Copy the "Web app" URL (looks like
+ *      https://script.google.com/macros/s/AKfycb..../exec ).
+ * 6. Open  src/main.js  and replace  PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE
+ *    with that URL. Save. Done — submissions now land in the sheet.
+ *
+ * NOTE: If you change this script later, you must "Deploy ▸ Manage deployments
+ *       ▸ Edit ▸ New version" for the changes to go live (the /exec URL stays
+ *       the same).
+ * ─────────────────────────────────────────────────────────────────────────
+ */
+
+// Where to send a notification email for each submission (leave "" to disable).
+var NOTIFY_EMAIL = "aqdas.ewebcraft@gmail.com";
+
+function doPost(e) {
+  try {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = ss.getSheetByName("Submissions") || ss.insertSheet("Submissions");
+
+    // Header row on first run.
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(["Timestamp", "Name", "Email", "Phone", "Subject", "Message"]);
+    }
+
+    var p = (e && e.parameter) || {};
+    sheet.appendRow([
+      new Date(),
+      p.Name    || "",
+      p.Email   || "",
+      p.Phone   || "",
+      p.Subject || "",
+      p.Message || ""
+    ]);
+
+    if (NOTIFY_EMAIL) {
+      MailApp.sendEmail({
+        to: NOTIFY_EMAIL,
+        replyTo: p.Email || NOTIFY_EMAIL,
+        subject: "New enquiry — " + (p.Subject || "The Nathia Reserve"),
+        body:
+          "Name: "    + (p.Name    || "") + "\n" +
+          "Email: "   + (p.Email   || "") + "\n" +
+          "Phone: "   + (p.Phone   || "") + "\n" +
+          "Subject: " + (p.Subject || "") + "\n\n" +
+          "Message:\n" + (p.Message || "")
+      });
+    }
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ result: "success" }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ result: "error", message: String(err) }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+// Lets you open the /exec URL in a browser to confirm it's live.
+function doGet() {
+  return ContentService.createTextOutput("Nathia form endpoint is running.");
+}
