@@ -206,6 +206,28 @@
     update();
   }
 
+  // Reveal helpers (used by failsafes so media never stays blank).
+  function revealAll(sel) {
+    document.querySelectorAll(sel).forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+  }
+  function revealEverything() {
+    revealAll("[data-reveal], [data-split], [data-wipe]");
+  }
+  // Reveal only what's already on screen — a safety net for browsers where the
+  // IntersectionObserver might not fire for in-view elements (seen on Safari).
+  // Off-screen elements are left alone so their scroll animation still plays.
+  function revealInView() {
+    var vh = window.innerHeight || 0;
+    document
+      .querySelectorAll("[data-wipe]:not(.is-visible), [data-reveal]:not(.is-visible), [data-split]:not(.is-visible)")
+      .forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < vh && r.bottom > 0) el.classList.add("is-visible");
+      });
+  }
+
   function boot() {
     try {
       initForm();
@@ -220,10 +242,8 @@
     try {
       initReveals();
     } catch (err) {
-      // Failsafe: never leave content hidden.
-      document.querySelectorAll("[data-reveal]").forEach(function (el) {
-        el.classList.add("is-visible");
-      });
+      // Failsafe: never leave content (or media) hidden.
+      revealEverything();
     }
     try {
       initSmooth();
@@ -242,4 +262,10 @@
   } else {
     boot();
   }
+
+  // Ultimate safety net: once everything has loaded, make sure nothing that's
+  // already on screen is still stuck in its hidden pre-animation state.
+  window.addEventListener("load", function () {
+    setTimeout(revealInView, 400);
+  });
 })();
