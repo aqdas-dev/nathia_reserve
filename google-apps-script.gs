@@ -34,30 +34,34 @@ function doPost(e) {
 
     // Header row on first run.
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow(["Timestamp", "Name", "Email", "Phone", "Subject", "Message"]);
+      sheet.appendRow(["Timestamp", "First Name", "Last Name", "Phone", "Email", "City", "Category", "Message"]);
     }
 
     var p = (e && e.parameter) || {};
     sheet.appendRow([
       new Date(),
-      p.Name    || "",
-      p.Email   || "",
-      p.Phone   || "",
-      p.Subject || "",
-      p.Message || ""
+      p.FirstName || "",
+      p.LastName  || "",
+      p.Phone     || "",
+      p.Email     || "",
+      p.City      || "",
+      p.Category  || "",
+      p.Message   || ""
     ]);
 
     if (NOTIFY_EMAIL) {
       MailApp.sendEmail({
         to: NOTIFY_EMAIL,
         replyTo: p.Email || NOTIFY_EMAIL,
-        subject: "New enquiry — " + (p.Subject || "The Nathia Reserve"),
+        subject: "New waitlist signup — " + ((p.FirstName || "") + " " + (p.LastName || "")).trim(),
         body:
-          "Name: "    + (p.Name    || "") + "\n" +
-          "Email: "   + (p.Email   || "") + "\n" +
-          "Phone: "   + (p.Phone   || "") + "\n" +
-          "Subject: " + (p.Subject || "") + "\n\n" +
-          "Message:\n" + (p.Message || "")
+          "First Name: " + (p.FirstName || "") + "\n" +
+          "Last Name: "  + (p.LastName  || "") + "\n" +
+          "Phone: "      + (p.Phone     || "") + "\n" +
+          "Email: "      + (p.Email     || "") + "\n" +
+          "City: "       + (p.City      || "") + "\n" +
+          "Category: "   + (p.Category  || "") + "\n\n" +
+          "Message:\n"   + (p.Message   || "")
       });
     }
 

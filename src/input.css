@@ -1,9 +1,6 @@
 @import "tailwindcss";
 
 /* ---------- Aloevera Sans (self-hosted, Light weight only) ---------- */
-/* url() is resolved relative to the built CSS at dist/output.css.
-   The 100–900 range maps every requested weight to the Light file,
-   so font-medium / font-semibold utilities also render in Light. */
 @font-face {
   font-family: "Aloevera";
   font-style: normal;
@@ -15,110 +12,79 @@
 @theme {
   --font-display: "Aloevera", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Aloevera", ui-sans-serif, system-ui, sans-serif;
-  --color-gold: #9c7a45;
+
+  /* Infinite image marquee (section 3). Track holds two identical slide sets;
+     translating -50% advances by exactly one set for a seamless loop. Consumed
+     in markup via the `animate-marquee` utility. */
+  --animate-marquee: marquee 40s linear infinite;
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
 }
 
-/* ---------- Lenis smooth scroll ---------- */
-html.lenis,
-html.lenis body {
-  height: auto;
+html {
+  scroll-behavior: smooth;
 }
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-/* prevent any reveal transform from creating a horizontal scrollbar */
 body {
   overflow-x: hidden;
 }
 
-/* ---------- Scroll progress bar ---------- */
-#scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  transform: scaleX(0);
-  transform-origin: left center;
-  background: var(--color-gold, #9c7a45);
-  z-index: 60;
-  pointer-events: none;
+/* Respect reduced-motion: hold the marquee still. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee { animation: none; }
 }
 
-/* ---------- Scroll-reveal animations ---------- */
-/* Hidden states only apply when JS is active (html.reveal-ready) and the
-   user hasn't asked for reduced motion — so content is never stuck invisible. */
-@media (prefers-reduced-motion: no-preference) {
-  html.reveal-ready [data-reveal] {
-    opacity: 0;
-    transform: translateY(2.75rem);
-    filter: blur(5px);
-    transition:
-      opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1),
-      transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1),
-      filter 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
-    transition-delay: var(--reveal-delay, 0ms);
-    will-change: opacity, transform, filter;
+/* ==========================================================================
+   INTRO — centred heading  <->  [heading | video]  (CSS-driven on hover)
+   The heading is vertically centred in a fixed-min-height row, so its font-size
+   shrink scales toward its OWN centre — the vertical centre never moves (no hop
+   like GSAP Flip produced). Only `width` (→ moves left) and `font-size` animate;
+   the video fades in at a fixed right-hand slot (never travels).
+   ========================================================================== */
+.intro-inner {
+  /* Reserve a constant vertical extent so nothing shifts as the video reveals. */
+  min-height: clamp(17rem, 23vw, 22rem);
+}
+.intro-text {
+  width: 100%;
+  text-align: center;
+  transform-origin: center center;
+  /* Only transform animates — NO width/font transition — so the heading never
+     reflows (its 4-line wrap is fixed); it just scales down + slides left. */
+  transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+.intro-text h2 {
+  max-width: 46rem; /* the fixed 4-line wrap; preserved in both states */
+  margin-inline: auto;
+  /* 45.15px on desktop (Figma), fluid down to mobile. vw term is set high enough
+     that the 45.15px cap applies for viewports ≳1370px (independent of scrollbar). */
+  font-size: clamp(1.75rem, 3.3vw, 45.15px);
+}
+.intro-media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 48%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.55s ease 0.12s;
+}
+.intro-media video {
+  height: 100%;
+}
+
+/* Desktop hover reveals the split (pointer devices only). The heading scales to
+   ~0.72 (≈45.15px→32.5px visually) and shifts into the left half. translateX is
+   a % of .intro-text (= container width), so it stays correct at every width. */
+@media (hover: hover) and (min-width: 768px) {
+  .intro-inner:hover .intro-text {
+    transform: translateX(-26%) scale(0.72);
   }
-  html.reveal-ready [data-reveal="zoom"] {
-    transform: scale(1.07);
-  }
-  html.reveal-ready [data-reveal="left"] {
-    transform: translateX(-2.75rem);
-  }
-  html.reveal-ready [data-reveal="right"] {
-    transform: translateX(2.75rem);
-  }
-  html.reveal-ready [data-reveal].is-visible {
+  .intro-inner:hover .intro-media {
     opacity: 1;
-    transform: none;
-    filter: none;
-  }
-
-  /* Line-by-line heading reveal (text rises out of a clipping mask) */
-  html.reveal-ready .line-mask {
-    display: block;
-    overflow: hidden;
-    padding-bottom: 0.12em;
-    margin-bottom: -0.12em;
-  }
-  html.reveal-ready .line-inner {
-    display: block;
-    transform: translateY(120%);
-    transition: transform 0.95s cubic-bezier(0.22, 0.61, 0.36, 1);
-    transition-delay: var(--line-delay, 0ms);
-    will-change: transform;
-  }
-  html.reveal-ready [data-split].is-visible .line-inner {
-    transform: none;
-  }
-
-  /* Clip-path "wipe" reveal for media (images / video) */
-  html.reveal-ready [data-wipe] {
-    -webkit-clip-path: inset(0 0 100% 0);
-    clip-path: inset(0 0 100% 0);
-    transition:
-      -webkit-clip-path 1.1s cubic-bezier(0.22, 0.61, 0.36, 1),
-      clip-path 1.1s cubic-bezier(0.22, 0.61, 0.36, 1);
-    transition-delay: var(--reveal-delay, 0ms);
-    will-change: clip-path;
-  }
-  html.reveal-ready [data-wipe].is-visible {
-    -webkit-clip-path: inset(0 0 0 0);
-    clip-path: inset(0 0 0 0);
-  }
-
-  /* Parallax images keep a slight scale so they always cover their frame
-     while translating on scroll (frame must be overflow-hidden). */
-  [data-parallax-img] {
-    transform: scale(1.14);
-    will-change: transform;
+    pointer-events: auto;
   }
 }

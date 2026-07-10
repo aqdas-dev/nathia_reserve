@@ -5,404 +5,274 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Nathia Reserve</title>
     <link rel="stylesheet" href="./dist/output.css">
-    <!-- mark JS as active so reveal elements start hidden (no flash if JS is off) -->
-    <script>document.documentElement.classList.add('reveal-ready');</script>
 </head>
 <body class="bg-white font-sans text-neutral-900 antialiased">
 
-    <!-- Scroll progress indicator -->
-    <div id="scroll-progress" aria-hidden="true"></div>
+    <!-- ===== HERO (static full-bleed aerial) ===== -->
+    <section id="hero" class="relative flex h-screen min-h-[640px] w-full flex-col overflow-hidden">
 
-    <!-- ===== HERO ===== -->
-    <section class="relative flex h-screen min-h-[640px] w-full flex-col overflow-hidden text-white">
+        <!-- Full-bleed background image -->
+        <img src="./src/assets/new-version-1.webp" alt="The Nathia Reserve — aerial view" class="absolute inset-0 h-full w-full object-cover">
+        <!-- Scrim for text legibility -->
+        <div class="pointer-events-none absolute inset-0 bg-black/30"></div>
 
-        <!-- Background image -->
-        <img src="./src/assets/hero-image.webp" alt="The Nathia Reserve at night" data-parallax-hero
-             class="absolute inset-0 -z-20 h-full w-full object-cover">
-
-        <!-- Top bar: logo -->
-        <header class="flex items-center justify-between px-6 pt-6 sm:px-10 sm:pt-8">
-            <img src="./src/assets/logo.svg" alt="The Nathia Reserve" class="h-16 w-auto sm:h-20" data-reveal data-reveal-delay="100">
-        </header>
-
-        <!-- Middle: headline + slide index -->
-        <div class="flex flex-1 items-center" data-parallax-content>
-            <div class="w-full px-6 sm:px-10">
-                <div class="flex items-center justify-between gap-8">
-                    <h1 class="max-w-3xl font-display text-5xl font-medium leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl" data-split data-reveal-delay="250">
-                        The Pinnacle of<br>
-                        Premium Mountain<br>
-                        Living
-                    </h1>
-
-                    <!-- Slide indicator (right) -->
-                    <div class="hidden shrink-0 flex-col items-center gap-6 pr-2 sm:flex" data-reveal data-reveal-delay="450">
-                        <span class="h-24 w-px bg-white/50 lg:h-32"></span>
-                        <span class="font-display text-lg tracking-widest text-white/80">01</span>
-                    </div>
-                </div>
+        <!-- Top nav (wide translucent bar, ~114px tall @1440) -->
+        <div class="absolute inset-x-0 top-5 z-30 px-4 sm:px-6 lg:px-12 xl:px-16">
+            <div class="flex items-center justify-center rounded-xl border border-white/20 bg-[#644E23]/20 py-2.5 backdrop-blur-sm">
+                <img src="./src/assets/new-version-logo.svg" alt="The Nathia Reserve — By Elevate Holdings" class="h-[clamp(2.75rem,6.46vw,110px)] w-auto brightness-0 invert">
             </div>
         </div>
 
-        <!-- Bottom: divider + Learn More -->
-        <div class="px-6 pb-8 sm:px-10 sm:pb-12" data-reveal data-reveal-delay="600">
-            <div class="flex items-center gap-6">
-                <span class="h-px flex-1 bg-white/40"></span>
-                <a href="#contact" class="group flex items-center gap-2 font-display text-lg text-white/90 transition hover:text-white">
-                    Learn More
-                    <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
-                </a>
-            </div>
+        <!-- Headline (vertically centered) + CTA (pinned lower) -->
+        <div class="relative z-20 flex flex-1 flex-col items-center justify-center px-6 text-center">
+            <h1 class="font-display text-[clamp(2rem,3.6vw,4rem)] font-normal leading-[1.15] tracking-tight text-[#F5EFE1]">
+                The Pinnacle of<br>Premium Mountain Living
+            </h1>
+            <a href="#experience" class="absolute bottom-[18%] left-1/2 -translate-x-1/2 cursor-pointer whitespace-nowrap rounded-md bg-[#FFFFFFEE] px-12 py-3 font-display text-lg text-neutral-800 transition hover:bg-white">Learn More</a>
         </div>
-
     </section>
 
-    <!-- ===== SECTION 02 — INTRO ===== -->
-    <section class="relative w-full bg-[#c8b29b] py-16 text-[#f4eee4] sm:py-20">
-        <div class="px-6 sm:px-10">
-
-            <!-- Heading + slide index -->
-            <div class="flex items-center justify-between gap-8">
-                <h2 class="max-w-3xl font-display text-4xl font-medium leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl" data-reveal>
-                    A Luxury Hotel Crafted For Those Who Seek Timeless Design, Elevated Comfort, And The Quiet Beauty Of The Mountains
+    <!-- ===== INTRO (centered heading -> [heading | video] on hover) ===== -->
+    <section id="intro" class="intro relative flex h-[85vh] min-h-[600px] w-full items-center overflow-hidden bg-white">
+        <div class="intro-inner relative mx-auto flex w-full max-w-6xl items-center px-6">
+            <div id="intro-text" class="intro-text">
+                <h2 class="font-display font-medium leading-[1.15] tracking-tight text-neutral-900">
+                    A Luxury Apartment Hotel Crafted For Those Who Seek Timeless Design, Elevated Comfort, And The Quiet Beauty Of The Mountains.
                 </h2>
-
-                <!-- Slide indicator (right) -->
-                <div class="hidden shrink-0 flex-col items-center gap-6 pr-2 sm:flex" data-reveal data-reveal-delay="150">
-                    <span class="h-24 w-px bg-black/25 lg:h-28"></span>
-                    <span class="font-display text-lg tracking-widest text-black/50">02</span>
-                </div>
             </div>
-
-            <!-- Lobby video -->
-            <div class="mt-12 flex justify-end sm:mt-16">
-                <video class="aspect-video w-full object-cover sm:w-[64%]"
-                       autoplay muted loop playsinline preload="metadata">
-                    <source src="./src/assets/reception_lobby-2.mp4" type="video/mp4">
-                </video>
+            <div class="intro-media">
+                <video src="./src/assets/reception_lobby-2.mp4" muted loop playsinline preload="metadata" class="h-full w-full rounded-lg object-cover"></video>
             </div>
-
         </div>
     </section>
 
-    <!-- ===== SECTION 03 — EXPERIENCE MORE THAN A HOTEL ===== -->
-    <section class="relative w-full bg-white py-20 sm:py-28">
-        <div class="px-6 sm:px-10">
-
-            <!-- Heading + left slide index -->
-            <div class="relative">
-                <!-- Slide indicator (left) -->
-                <div class="absolute left-0 top-1/2 hidden -translate-y-1/2 flex-col items-center gap-6 sm:flex">
-                    <span class="h-24 w-px bg-neutral-300 lg:h-28"></span>
-                    <span class="font-display text-sm tracking-widest text-neutral-400">03</span>
-                </div>
-
-                <div class="mx-auto max-w-xl sm:ml-[42%]">
-                    <h2 class="font-display text-5xl font-medium leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl" data-split>
-                        Experience<br>More Than A<br>Hotel
-                    </h2>
-                    <p class="mt-6 max-w-md text-lg leading-relaxed text-neutral-600" data-reveal data-reveal-delay="350">
-                        It's a destination designed around wellness, leisure, and unforgettable moments
-                    </p>
-                </div>
-            </div>
-
-            <!-- Big feature image + caption -->
-            <div class="mt-16 sm:mt-24 lg:w-[76%]" data-reveal>
-                <img src="./src/assets/1.webp" alt="Luxury Accommodations at The Nathia Reserve"
-                     class="w-full object-cover">
-                <div class="mt-4">
-                    <span class="font-display text-base text-neutral-500">Luxury Accommodations.</span>
-                </div>
-            </div>
-
-            <!-- 4-image gallery -->
-            <div class="mt-10 grid grid-cols-2 gap-4 sm:mt-12 lg:grid-cols-4 lg:gap-5" data-reveal-stagger="110">
-                <figure data-reveal>
-                    <img src="./src/assets/2.png" alt="Curated Dining" class="aspect-4/3 w-full object-cover">
-                    <figcaption class="mt-3 font-display text-sm text-neutral-500">Curated Dining</figcaption>
-                </figure>
-                <figure data-reveal>
-                    <img src="./src/assets/3.png" alt="Spa Experiences" class="aspect-4/3 w-full object-cover">
-                    <figcaption class="mt-3 font-display text-sm text-neutral-500">Spa Experiences</figcaption>
-                </figure>
-                <figure data-reveal>
-                    <img src="./src/assets/4.png" alt="Adventure" class="aspect-4/3 w-full object-cover">
-                    <figcaption class="mt-3 font-display text-sm text-neutral-500">Adventure</figcaption>
-                </figure>
-                <figure data-reveal>
-                    <img src="./src/assets/5.png" alt="Connection With Nature" class="aspect-4/3 w-full object-cover">
-                    <figcaption class="mt-3 font-display text-sm text-neutral-500">Connection With Nature</figcaption>
-                </figure>
-            </div>
-
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience" class="w-full bg-white py-16 sm:py-24">
+        <div class="mx-auto max-w-5xl px-6 text-center">
+            <!-- 92.28px @1440 (Figma), fluid; capped so it holds at ≥~1400px -->
+            <h2 class="font-display text-[clamp(2.75rem,6.7vw,92.28px)] font-medium leading-[1.05] tracking-tight text-black">
+                Experience More<br>Than A Hotel
+            </h2>
+            <!-- 35.29px @1440 (Figma), fluid. Hard 3-line break on desktop only;
+                 wraps naturally below lg so the long lines never overflow. -->
+            <p class="mx-auto mt-8 text-[clamp(1.125rem,2.5vw,35.29px)] leading-relaxed text-black">
+                It's a destination designed around wellness, leisure, <br class="hidden lg:inline">and unforgettable moments. The largest project of <br class="hidden lg:inline">Galiyat with unparalleled views.
+            </p>
         </div>
     </section>
 
-    <!-- ===== SECTION 04 — CRAFTED FOR EVERY MOMENT ===== -->
-    <section class="w-full bg-white py-20 sm:py-28">
-        <div class="px-6 sm:px-10">
+    <!-- ===== IMAGE MARQUEE (infinite left-scroll · 3 per screen · captions · pause on hover) ===== -->
+    <!-- Set A and Set B captions MUST stay identical (Set B is the seamless-loop duplicate). -->
+    <section class="w-full overflow-hidden bg-white py-12 sm:py-16">
+        <div class="flex w-max animate-marquee items-start gap-5 pr-5 hover:[animation-play-state:paused]">
+            <!-- Slide set A -->
+            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]">
+                <img src="./src/assets/new-version-2-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
+                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Luxury accommodations.</figcaption>
+            </figure>
+            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]">
+                <img src="./src/assets/new-version-3-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
+                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Curated dining.</figcaption>
+            </figure>
+            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]">
+                <img src="./src/assets/new-version-4-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
+                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">The only project on main <br> Nathia Gali road.</figcaption>
+            </figure>
+            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]">
+                <img src="./src/assets/new-version-5-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
+                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Spa experiences.</figcaption>
+            </figure>
+            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]">
+                <img src="./src/assets/new-version-6-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
+                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Connection with nature.</figcaption>
+            </figure>
+            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]">
+                <img src="./src/assets/new-version-7-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
+                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Penthouses with their exclusive <br> infinity pools.</figcaption>
+            </figure>
+            <!-- Slide set B (duplicate for seamless loop) -->
+            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]" aria-hidden="true">
+                <img src="./src/assets/new-version-2-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
+                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Luxury accommodations.</figcaption>
+            </figure>
+            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]" aria-hidden="true">
+                <img src="./src/assets/new-version-3-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
+                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Curated dining.</figcaption>
+            </figure>
+            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]" aria-hidden="true">
+                <img src="./src/assets/new-version-4-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
+                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">The only project on main <br> Nathia Gali road.</figcaption>
+            </figure>
+            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]" aria-hidden="true">
+                <img src="./src/assets/new-version-5-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
+                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Spa experiences.</figcaption>
+            </figure>
+            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]" aria-hidden="true">
+                <img src="./src/assets/new-version-6-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
+                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Connection with nature.</figcaption>
+            </figure>
+            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]" aria-hidden="true">
+                <img src="./src/assets/new-version-7-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
+                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Penthouses with their exclusive <br> infinity pools.</figcaption>
+            </figure>
+        </div>
+    </section>
 
-            <!-- Section heading -->
-            <h2 class="font-display text-5xl font-medium leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl" data-split>
+    <!-- ===== CRAFTED FOR EVERY MOMENT ===== -->
+    <section class="w-full bg-white py-16 sm:py-20">
+        <div class="mx-auto max-w-6xl px-6">
+            <!-- Consistent section heading size: 83.01px @1440 (Figma), fluid -->
+            <h2 class="font-display text-[clamp(2.5rem,5.9vw,83.01px)] font-medium leading-[1.05] tracking-tight text-black">
                 Crafted For<br>Every Moment
             </h2>
 
-            <!-- Amenities list -->
-            <div class="mt-16 space-y-20 sm:mt-24 sm:space-y-28">
-
-                <!-- 01 — image left, label right -->
-                <div class="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 sm:gap-12">
-                    <div class="overflow-hidden">
-                        <img src="./src/assets/6.png" alt="Luxury Suites & Penthouse" class="aspect-square w-full object-cover" data-reveal>
-                    </div>
-                    <div class="flex flex-col items-end justify-between py-2 text-right" data-reveal data-reveal-delay="150">
-                        <span class="font-display text-5xl font-light text-neutral-900 sm:text-6xl">01</span>
-                        <h3 class="font-display text-2xl leading-tight text-neutral-900 sm:text-3xl">Luxury Suites &amp;<br>Penthouse</h3>
-                    </div>
+            <div class="mt-12 space-y-4 sm:mt-16 sm:space-y-5">
+                <!-- Row 1 -->
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-5 sm:gap-5">
+                    <figure class="relative sm:col-span-3">
+                        <img src="./src/assets/new-version-8.webp" alt="Luxury Suites & Penthouses" class="h-64 w-full rounded-md object-cover sm:h-[460px]">
+                        <figcaption class="absolute bottom-4 left-4 font-display text-[clamp(0.9rem,1.35vw,18.51px)] text-[#FFFEFE] drop-shadow">Luxury Suites &amp; Penthouses</figcaption>
+                    </figure>
+                    <figure class="relative sm:col-span-2">
+                        <img src="./src/assets/new-version-9.webp" alt="Signature Restaurants" class="h-64 w-full rounded-md object-cover sm:h-[460px]">
+                        <figcaption class="absolute bottom-4 left-4 font-display text-[clamp(0.9rem,1.35vw,18.51px)] text-[#FFFEFE] drop-shadow">Signature Restaurants</figcaption>
+                    </figure>
                 </div>
-
-                <!-- 02 — image right, label left -->
-                <div class="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 sm:gap-12">
-                    <div class="sm:order-2 overflow-hidden">
-                        <img src="./src/assets/7.png" alt="Signature Restaurants" class="aspect-square w-full object-cover" data-reveal>
-                    </div>
-                    <div class="flex flex-col items-start justify-between py-2 text-left sm:order-1" data-reveal data-reveal-delay="150">
-                        <span class="font-display text-5xl font-light text-neutral-900 sm:text-6xl">02</span>
-                        <h3 class="font-display text-2xl leading-tight text-neutral-900 sm:text-3xl">Signature<br>Restaurants</h3>
-                    </div>
+                <!-- Row 2 -->
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
+                    <figure class="relative">
+                        <img src="./src/assets/new-version-10.webp" alt="Outdoor Dining" class="h-64 w-full rounded-md object-cover sm:h-[380px]">
+                        <figcaption class="absolute bottom-4 left-4 font-display text-[clamp(0.9rem,1.35vw,18.51px)] text-[#FFFEFE] drop-shadow">Outdoor Dining</figcaption>
+                    </figure>
+                    <figure class="relative">
+                        <img src="./src/assets/new-version-11.webp" alt="Skywalk Bridge" class="h-64 w-full rounded-md object-cover sm:h-[380px]">
+                        <figcaption class="absolute bottom-4 left-4 font-display text-[clamp(0.9rem,1.35vw,18.51px)] text-[#FFFEFE] drop-shadow">Skywalk Bridge</figcaption>
+                    </figure>
+                    <figure class="relative">
+                        <img src="./src/assets/new-version-12.webp" alt="Plunge Pool" class="h-64 w-full rounded-md object-cover sm:h-[380px]">
+                        <figcaption class="absolute bottom-4 left-4 font-display text-[clamp(0.9rem,1.35vw,18.51px)] text-[#FFFEFE] drop-shadow">Plunge Pool</figcaption>
+                    </figure>
                 </div>
-
-                <!-- 03 — image left, label right -->
-                <div class="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 sm:gap-12">
-                    <div class="overflow-hidden">
-                        <img src="./src/assets/8.png" alt="Outdoor Dining" class="aspect-square w-full object-cover" data-reveal>
-                    </div>
-                    <div class="flex flex-col items-end justify-between py-2 text-right" data-reveal data-reveal-delay="150">
-                        <span class="font-display text-5xl font-light text-neutral-900 sm:text-6xl">03</span>
-                        <h3 class="font-display text-2xl leading-tight text-neutral-900 sm:text-3xl">Outdoor<br>Dining</h3>
-                    </div>
+                <!-- Row 3 -->
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-5 sm:gap-5">
+                    <figure class="relative sm:col-span-2">
+                        <img src="./src/assets/new-version-13.webp" alt="Private dining pavilion" class="h-64 w-full rounded-md object-cover sm:h-[420px]">
+                        <figcaption class="absolute bottom-4 left-4 font-display text-[clamp(0.9rem,1.35vw,18.51px)] text-[#FFFEFE] drop-shadow">Suspended Decks</figcaption>
+                    </figure>
+                    <figure class="relative sm:col-span-3">
+                        <img src="./src/assets/new-version-14.webp" alt="Indoor hydrotherapy pool" class="h-64 w-full rounded-md object-cover sm:h-[420px]">
+                        <figcaption class="absolute bottom-4 left-4 font-display text-[clamp(0.9rem,1.35vw,18.51px)] text-[#FFFEFE] drop-shadow">Hydrotherapy Pool</figcaption>
+                    </figure>
                 </div>
-
-                <!-- 04 — image right, label left -->
-                <div class="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 sm:gap-12">
-                    <div class="sm:order-2 overflow-hidden">
-                        <img src="./src/assets/9.png" alt="Spa & Sauna" class="aspect-square w-full object-cover" data-reveal>
-                    </div>
-                    <div class="flex flex-col items-start justify-between py-2 text-left sm:order-1" data-reveal data-reveal-delay="150">
-                        <span class="font-display text-5xl font-light text-neutral-900 sm:text-6xl">04</span>
-                        <h3 class="font-display text-2xl leading-tight text-neutral-900 sm:text-3xl">Spa &amp;<br>Sauna</h3>
-                    </div>
-                </div>
-
-                <!-- 05 — image left, label right -->
-                <div class="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 sm:gap-12">
-                    <div class="overflow-hidden">
-                        <img src="./src/assets/10.png" alt="Hydrotherapy Pool" class="aspect-square w-full object-cover" data-reveal>
-                    </div>
-                    <div class="flex flex-col items-end justify-between py-2 text-right" data-reveal data-reveal-delay="150">
-                        <span class="font-display text-5xl font-light text-neutral-900 sm:text-6xl">05</span>
-                        <h3 class="font-display text-2xl leading-tight text-neutral-900 sm:text-3xl">Hydrotherapy<br>Pool</h3>
-                    </div>
-                </div>
-
-                <!-- 06 — image right, label left -->
-                <div class="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 sm:gap-12">
-                    <div class="sm:order-2 overflow-hidden">
-                        <img src="./src/assets/11.png" alt="Outdoor Swimming Pool" class="aspect-square w-full object-cover" data-reveal>
-                    </div>
-                    <div class="flex flex-col items-start justify-between py-2 text-left sm:order-1" data-reveal data-reveal-delay="150">
-                        <span class="font-display text-5xl font-light text-neutral-900 sm:text-6xl">06</span>
-                        <h3 class="font-display text-2xl leading-tight text-neutral-900 sm:text-3xl">Outdoor Swimming<br>Pool</h3>
-                    </div>
-                </div>
-
-                <!-- 07 — image left, label right -->
-                <div class="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 sm:gap-12">
-                    <div class="overflow-hidden">
-                        <img src="./src/assets/12.png" alt="Plunge Pool" class="aspect-square w-full object-cover" data-reveal>
-                    </div>
-                    <div class="flex flex-col items-end justify-between py-2 text-right" data-reveal data-reveal-delay="150">
-                        <span class="font-display text-5xl font-light text-neutral-900 sm:text-6xl">07</span>
-                        <h3 class="font-display text-2xl leading-tight text-neutral-900 sm:text-3xl">Plunge<br>Pool</h3>
-                    </div>
-                </div>
-
-                <!-- 08 — image right, label left -->
-                <div class="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 sm:gap-12">
-                    <div class="sm:order-2 overflow-hidden">
-                        <img src="./src/assets/13.png" alt="Gym & Yoga Studio" class="aspect-square w-full object-cover" data-reveal>
-                    </div>
-                    <div class="flex flex-col items-start justify-between py-2 text-left sm:order-1" data-reveal data-reveal-delay="150">
-                        <span class="font-display text-5xl font-light text-neutral-900 sm:text-6xl">08</span>
-                        <h3 class="font-display text-2xl leading-tight text-neutral-900 sm:text-3xl">Gym &amp; Yoga<br>Studio</h3>
-                    </div>
-                </div>
-
-                <!-- 09 — image left, label right -->
-                <div class="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 sm:gap-12">
-                    <div class="overflow-hidden">
-                        <img src="./src/assets/14.png" alt="Skywalk Bridge" class="aspect-square w-full object-cover" data-reveal>
-                    </div>
-                    <div class="flex flex-col items-end justify-between py-2 text-right" data-reveal data-reveal-delay="150">
-                        <span class="font-display text-5xl font-light text-neutral-900 sm:text-6xl">09</span>
-                        <h3 class="font-display text-2xl leading-tight text-neutral-900 sm:text-3xl">Skywalk<br>Bridge</h3>
-                    </div>
-                </div>
-
-                <!-- 10 — image right, label left -->
-                <div class="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 sm:gap-12">
-                    <div class="sm:order-2 overflow-hidden">
-                        <img src="./src/assets/15.png" alt="Suspended Decks" class="aspect-square w-full object-cover" data-reveal>
-                    </div>
-                    <div class="flex flex-col items-start justify-between py-2 text-left sm:order-1" data-reveal data-reveal-delay="150">
-                        <span class="font-display text-5xl font-light text-neutral-900 sm:text-6xl">10</span>
-                        <h3 class="font-display text-2xl leading-tight text-neutral-900 sm:text-3xl">Suspended<br>Decks</h3>
-                    </div>
-                </div>
-
-                <!-- 11 — image left, label right -->
-                <div class="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 sm:gap-12">
-                    <div class="overflow-hidden">
-                        <img src="./src/assets/16.png" alt="Grand Reception" class="aspect-square w-full object-cover" data-reveal>
-                    </div>
-                    <div class="flex flex-col items-end justify-between py-2 text-right" data-reveal data-reveal-delay="150">
-                        <span class="font-display text-5xl font-light text-neutral-900 sm:text-6xl">11</span>
-                        <h3 class="font-display text-2xl leading-tight text-neutral-900 sm:text-3xl">Grand<br>Reception</h3>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ===== SECTION 05 — CONTACT ===== -->
-    <section id="contact" class="w-full bg-white py-20 sm:py-28">
-        <div class="px-6 sm:px-10">
-            <div class="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-stretch lg:gap-20">
-
-                <!-- Left: heading + contact info -->
-                <div class="flex flex-col">
-                    <h2 class="font-display text-6xl font-medium tracking-tight lg:text-7xl" data-split>Contact</h2>
-                    <div class="mt-10 space-y-3 lg:mt-auto lg:pt-10" data-reveal data-reveal-delay="150">
-                        <p class="text-neutral-700">+1(819) 000-000-00</p>
-                        <p class="text-neutral-700">name123@gmail.com</p>
-                        <div class="flex items-center gap-5 pt-3 text-neutral-600">
-                            <a href="#" aria-label="Facebook" class="transition hover:text-neutral-900"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
-                            <a href="#" aria-label="X" class="transition hover:text-neutral-900"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
-                            <a href="#" aria-label="Instagram" class="transition hover:text-neutral-900"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0Zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03Zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162ZM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4Zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439Z"/></svg></a>
-                            <a href="#" aria-label="LinkedIn" class="transition hover:text-neutral-900"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-                            <a href="#" aria-label="YouTube" class="transition hover:text-neutral-900"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg></a>
-                        </div>
-                    </div>
+    <!-- ===== MEET THE FOUNDER (portrait left · content right) ===== -->
+    <section class="w-full overflow-hidden bg-white py-16 sm:py-24">
+        <div class="mx-auto max-w-6xl px-6">
+            <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+                <!-- Portrait (left) -->
+                <figure class="lg:order-1">
+                    <img src="./src/assets/new-version-15.webp" alt="Ahmed Khilji, Founder of The Nathia Reserve" class="aspect-[3/4] w-full rounded-md object-cover">
+                </figure>
+                <!-- Content (right) -->
+                <div class="lg:order-2">
+                    <!-- Consistent section heading size: 83.01px @1440 (Figma), fluid -->
+                    <h2 class="font-display text-[clamp(2.5rem,5.9vw,83.01px)] font-medium leading-[1.05] tracking-tight text-black">
+                        Meet The<br>Founder
+                    </h2>
+                    <p class="mt-8 max-w-xl text-[clamp(1rem,1.5vw,20.81px)] leading-relaxed text-black">
+                        The Nathia Reserve was envisioned as more than a destination. It was created to redefine luxury mountain hospitality through thoughtful design, exceptional experiences, and a deep appreciation for the natural beauty of Nathia Gali
+                    </p>
+                    <p class="mt-6 max-w-xl text-[clamp(1rem,1.5vw,20.81px)] leading-relaxed text-black">
+                        Our vision has always been to create a place where timeless hospitality meets the tranquility of the mountains.
+                    </p>
+                    <p class="mt-10 font-display">
+                        <span class="text-[clamp(1.75rem,3.15vw,44.3px)] font-semibold tracking-tight text-black">Ahmed Khilji</span>
+                        <span class="ml-2 align-middle text-sm text-neutral-500">Founder</span>
+                    </p>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Right: form -->
-                <div>
-                    <h3 class="font-display text-3xl text-neutral-900" data-reveal>Lets Talk</h3>
-                    <form id="lets-talk-form" class="mt-8 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2" data-reveal data-reveal-delay="150">
+    <!-- ===== CONTACT + FOOTER ===== -->
+    <section id="contact" class="w-full bg-[#3b2c06] text-[#f0ece1]">
+        <!-- Contact -->
+        <div class="mx-auto max-w-7xl px-6 pt-16 sm:pt-24">
+            <!-- Form column fixed at its Figma width (674px @1440); stacks below xl -->
+            <div class="grid grid-cols-1 items-center gap-10 xl:grid-cols-[1fr_674px]">
+                <!-- Consistent section heading size: 83.01px @1440 (Figma), fluid -->
+                <h2 class="font-display text-[clamp(2.5rem,5.9vw,83.01px)] font-medium leading-[1.05] tracking-tight">Contact Us</h2>
+
+                <!-- Waitlist form card (674px wide @1440) -->
+                <div class="mx-auto w-full max-w-[674px] rounded-2xl bg-white p-10 text-neutral-900 sm:p-14">
+                    <!-- 38.05px @1440 (Figma), fluid -->
+                    <h3 class="font-display text-[clamp(1.6rem,2.75vw,38.05px)] font-medium text-black">Join The Waitlist</h3>
+                    <form id="waitlist-form" class="mt-10 grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2">
                         <div>
-                            <label class="block text-sm text-neutral-500">Name</label>
-                            <input type="text" name="Name" required class="mt-2 w-full border-b border-neutral-300 bg-transparent pb-2 text-neutral-900 outline-none transition focus:border-neutral-500">
+                            <label class="block text-[clamp(1rem,1.65vw,22.68px)] text-black">First Name</label>
+                            <input type="text" name="FirstName" required class="mt-3 w-full border-b border-neutral-300 bg-transparent pb-3 text-lg text-neutral-900 outline-none transition focus:border-neutral-500">
                         </div>
                         <div>
-                            <label class="block text-sm text-neutral-500">Email Address</label>
-                            <input type="email" name="Email" required class="mt-2 w-full border-b border-neutral-300 bg-transparent pb-2 text-neutral-900 outline-none transition focus:border-neutral-500">
+                            <label class="block text-[clamp(1rem,1.65vw,22.68px)] text-black">Last Name</label>
+                            <input type="text" name="LastName" class="mt-3 w-full border-b border-neutral-300 bg-transparent pb-3 text-lg text-neutral-900 outline-none transition focus:border-neutral-500">
                         </div>
                         <div>
-                            <label class="block text-sm text-neutral-500">Phone No</label>
-                            <input type="tel" name="Phone" class="mt-2 w-full border-b border-neutral-300 bg-transparent pb-2 text-neutral-900 outline-none transition focus:border-neutral-500">
+                            <label class="block text-[clamp(1rem,1.65vw,22.68px)] text-black">Phone No</label>
+                            <input type="tel" name="Phone" class="mt-3 w-full border-b border-neutral-300 bg-transparent pb-3 text-lg text-neutral-900 outline-none transition focus:border-neutral-500">
                         </div>
                         <div>
-                            <label class="block text-sm text-neutral-500">Subject</label>
-                            <input type="text" name="Subject" class="mt-2 w-full border-b border-neutral-300 bg-transparent pb-2 text-neutral-900 outline-none transition focus:border-neutral-500">
+                            <label class="block text-[clamp(1rem,1.65vw,22.68px)] text-black">Email Address</label>
+                            <input type="email" name="Email" required class="mt-3 w-full border-b border-neutral-300 bg-transparent pb-3 text-lg text-neutral-900 outline-none transition focus:border-neutral-500">
+                        </div>
+                        <div>
+                            <label class="block text-[clamp(1rem,1.65vw,22.68px)] text-black">City</label>
+                            <input type="text" name="City" class="mt-3 w-full border-b border-neutral-300 bg-transparent pb-3 text-lg text-neutral-900 outline-none transition focus:border-neutral-500">
+                        </div>
+                        <div>
+                            <label class="block text-[clamp(1rem,1.65vw,22.68px)] text-black">Category</label>
+                            <select name="Category" class="mt-3 w-full border-b border-neutral-300 bg-transparent pb-3 text-lg text-neutral-900 outline-none transition focus:border-neutral-500">
+                                <option value="" disabled selected>Select a category</option>
+                                <option value="1 Bed">1 Bed</option>
+                                <option value="2 Bed">2 Bed</option>
+                                <option value="3 Bed">3 Bed</option>
+                                <option value="Penthouse">Penthouse</option>
+                            </select>
                         </div>
                         <div class="sm:col-span-2">
-                            <label class="block text-sm text-neutral-500">Message</label>
-                            <textarea rows="3" name="Message" class="mt-2 w-full resize-none border-b border-neutral-300 bg-transparent pb-2 text-neutral-900 outline-none transition focus:border-neutral-500"></textarea>
+                            <label class="block text-[clamp(1rem,1.65vw,22.68px)] text-black">Message</label>
+                            <textarea rows="2" name="Message" class="mt-3 w-full resize-none border-b border-neutral-300 bg-transparent pb-3 text-lg text-neutral-900 outline-none transition focus:border-neutral-500"></textarea>
                         </div>
                         <div class="sm:col-span-2">
-                            <button type="submit" class="cursor-pointer rounded-md bg-[#6e5a30] px-8 py-3 text-sm font-medium text-white transition hover:bg-[#816a3a] disabled:cursor-not-allowed disabled:opacity-60">Book Now</button>
-                            <p id="form-status" class="mt-4 text-sm" role="status" aria-live="polite"></p>
+                            <button type="submit" class="cursor-pointer rounded-md bg-[#3b2c06] px-10 py-3.5 text-base font-medium text-white transition hover:bg-[#5a4510] disabled:cursor-not-allowed disabled:opacity-60">Submit</button>
+                            <p id="form-status" class="mt-3 text-sm" role="status" aria-live="polite"></p>
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
+
+        <!-- Footer (near full-viewport, centered) -->
+        <footer class="mx-auto flex min-h-[90vh] max-w-6xl flex-col items-center justify-center px-6 py-16 text-center">
+            <!-- Logo height 304px @1440 (Figma), fluid -->
+            <img src="./src/assets/new-version-footer-logo.webp" alt="The Nathia Reserve" class="mx-auto h-[clamp(160px,25vw,360px)] w-auto">
+            <!-- 30.05px @1440 (Figma), #FFFFFF, fluid -->
+            <div class="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-2 font-display text-[clamp(1.25rem,2.15vw,30.05px)] text-white">
+                <span>+1(819) 000-000-00</span>
+                <span>name123@gmail.com</span>
+            </div>
+            <!-- Icons 25×25 -->
+            <div class="mt-8 flex items-center justify-center gap-6 text-white/85">
+                <a href="#" aria-label="Facebook" class="transition hover:text-white"><svg class="h-[25px] w-[25px]" viewBox="0 0 24 24" fill="currentColor"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
+                <a href="#" aria-label="Instagram" class="transition hover:text-white"><svg class="h-[25px] w-[25px]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0Zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03Zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162ZM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4Zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439Z"/></svg></a>
+                <a href="#" aria-label="LinkedIn" class="transition hover:text-white"><svg class="h-[25px] w-[25px]" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                <a href="#" aria-label="YouTube" class="transition hover:text-white"><svg class="h-[25px] w-[25px]" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg></a>
+            </div>
+        </footer>
     </section>
 
-    <!-- ===== SECTION 06 — MEET THE FOUNDER ===== -->
-    <section class="w-full bg-[#c8b29b] py-20 text-[#f4eee4] sm:py-28">
-        <div class="px-6 sm:px-10">
-
-            <!-- Heading + intro -->
-            <div class="flex flex-col justify-between gap-8 lg:flex-row lg:items-start">
-                <h2 class="font-display text-5xl font-medium leading-[1.05] tracking-tight sm:text-6xl" data-split>
-                    Meet The<br>Founder
-                </h2>
-                <p class="max-w-md text-sm leading-relaxed text-[#f4eee4]/90 lg:text-right" data-reveal data-reveal-delay="150">
-                    The Nathia Reserve was envisioned as more than a destination. It was created to redefine luxury mountain hospitality through thoughtful design, exceptional experiences, and a deep appreciation for the natural beauty of Nathia Gali
-                </p>
-            </div>
-
-            <!-- Portrait flanked by quote + name -->
-            <div class="mt-12 grid grid-cols-1 items-stretch gap-10 lg:mt-16 lg:grid-cols-3">
-                <!-- Vision quote (left, centered) -->
-                <div class="flex items-center">
-                    <p class="max-w-xs text-2xl leading-snug" data-reveal="left">
-                        Our vision has always been to create a place where timeless hospitality meets the tranquility of the mountains
-                    </p>
-                </div>
-                <!-- Portrait (center) -->
-                <div class="flex justify-center">
-                    <img src="./src/assets/17.jpg" alt="Ahmed Khilji, Founder of The Nathia Reserve" class="w-full max-w-sm object-cover" data-reveal>
-                </div>
-                <!-- Name (right, bottom) -->
-                <div class="flex flex-col justify-end" data-reveal="right" data-reveal-delay="150">
-                    <h3 class="font-display text-4xl font-semibold text-[#4a3d20]">Ahmed Khilji</h3>
-                    <p class="mt-2 leading-snug text-[#f4eee4]">Founder, The Nathia<br>Reserve</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="relative w-full overflow-hidden bg-white pt-20 pb-10 sm:pt-24">
-        <div class="relative z-10 px-6 sm:px-10">
-            <div class="grid grid-cols-1 gap-12 md:grid-cols-3" data-reveal-stagger="120">
-
-                <!-- Left: about + contact -->
-                <div data-reveal>
-                    <p class="max-w-sm text-sm leading-relaxed text-neutral-500">
-                        As a holding company, Elevate is not limited to one category. It is a parent platform for multiple ventures; from hospitality and reserves to fashion, lifestyle, and future businesses.
-                    </p>
-                    <p class="mt-8 text-sm text-neutral-600">+1(819) 000-000-00</p>
-                    <p class="mt-2 text-sm text-neutral-600">name123@gmail.com</p>
-                    <div class="mt-5 flex items-center gap-5 text-neutral-500">
-                        <a href="#" aria-label="Facebook" class="transition hover:text-neutral-900"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
-                        <a href="#" aria-label="X" class="transition hover:text-neutral-900"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
-                        <a href="#" aria-label="Instagram" class="transition hover:text-neutral-900"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0Zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03Zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162ZM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4Zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439Z"/></svg></a>
-                        <a href="#" aria-label="LinkedIn" class="transition hover:text-neutral-900"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-                        <a href="#" aria-label="YouTube" class="transition hover:text-neutral-900"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg></a>
-                    </div>
-                    <p class="mt-8 text-sm text-neutral-500">&copy; All Rights Reserved &nbsp;<span class="font-medium text-neutral-800">The Nathia Reserve</span></p>
-                </div>
-
-                <!-- Brand wordmark (replaces the old Quick Links / Support columns) -->
-                <div class="flex items-center justify-center md:col-span-2 md:justify-end" data-reveal>
-                    <img src="./src/assets/18.png" alt="The Nathia Reserve"
-                         class="w-full max-w-2xl opacity-80 invert">
-                </div>
-
-            </div>
-
-        </div>
-    </footer>
-
-    <!-- Scroll interactions -->
-    <script src="./src/vendor/lenis.min.js"></script>
     <script src="./src/main.js"></script>
 </body>
 </html>
