@@ -1,2 +1,6 @@
 node_modules/
-dist/
+
+# Ignore build output EXCEPT the committed, prebuilt stylesheet that Vercel
+# serves directly (deploy runs no build — see vercel.json).
+dist/*
+!dist/output.css
