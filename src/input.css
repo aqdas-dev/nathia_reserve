@@ -88,3 +88,34 @@ body {
     pointer-events: auto;
   }
 }
+
+/* Touch / mobile (no hover): the morph can't trigger, so stack the heading and
+   the video and keep the video ALWAYS visible (it autoplays muted). Also drop
+   the tall vh height so the section isn't stretched on phones. */
+@media (hover: none), (max-width: 767px) {
+  .intro {
+    height: auto;
+    min-height: 0;
+  }
+  .intro-inner {
+    flex-direction: column;
+    align-items: center;
+    min-height: 0;
+    gap: 2rem;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+  .intro-text {
+    width: 100%;
+    transform: none;
+    will-change: auto;
+  }
+  .intro-media {
+    position: static;
+    width: 100%;
+    max-width: 40rem;
+    aspect-ratio: 16 / 10;
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

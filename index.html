@@ -9,7 +9,8 @@
 <body class="bg-white font-sans text-neutral-900 antialiased">
 
     <!-- ===== HERO (static full-bleed aerial) ===== -->
-    <section id="hero" class="relative flex h-screen min-h-[640px] w-full flex-col overflow-hidden">
+    <!-- Mobile: fixed ~620px (no vh stretch). Desktop: full viewport. -->
+    <section id="hero" class="relative flex min-h-[620px] w-full flex-col overflow-hidden sm:h-screen">
 
         <!-- Full-bleed background image -->
         <img src="./src/assets/new-version-1.webp" alt="The Nathia Reserve — aerial view" class="absolute inset-0 h-full w-full object-cover">
@@ -28,7 +29,7 @@
             <h1 class="font-display text-[clamp(2rem,3.6vw,4rem)] font-normal leading-[1.15] tracking-tight text-[#F5EFE1]">
                 The Pinnacle of<br>Premium Mountain Living
             </h1>
-            <a href="#experience" class="absolute bottom-[18%] left-1/2 -translate-x-1/2 cursor-pointer whitespace-nowrap rounded-md bg-[#FFFFFFEE] px-12 py-3 font-display text-lg text-neutral-800 transition hover:bg-white">Learn More</a>
+            <a href="#contact" class="absolute bottom-[18%] left-1/2 -translate-x-1/2 cursor-pointer whitespace-nowrap rounded-md bg-[#FFFFFFEE] px-12 py-3 font-display text-lg text-neutral-800 transition hover:bg-white">Learn More</a>
         </div>
     </section>
 
@@ -41,7 +42,7 @@
                 </h2>
             </div>
             <div class="intro-media">
-                <video src="./src/assets/reception_lobby-2.mp4" muted loop playsinline preload="metadata" class="h-full w-full rounded-lg object-cover"></video>
+                <video src="./src/assets/reception_lobby-2.mp4" muted loop autoplay playsinline preload="auto" class="h-full w-full rounded-lg object-cover"></video>
             </div>
         </div>
     </section>
@@ -63,7 +64,7 @@
 
     <!-- ===== IMAGE MARQUEE (infinite left-scroll · 3 per screen · captions · pause on hover) ===== -->
     <!-- Set A and Set B captions MUST stay identical (Set B is the seamless-loop duplicate). -->
-    <section class="w-full overflow-hidden bg-white py-12 sm:py-16">
+    <section class="w-full overflow-hidden bg-white py-16 sm:py-24">
         <div class="flex w-max animate-marquee items-start gap-5 pr-5 hover:[animation-play-state:paused]">
             <!-- Slide set A -->
             <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]">
@@ -119,7 +120,7 @@
     </section>
 
     <!-- ===== CRAFTED FOR EVERY MOMENT ===== -->
-    <section class="w-full bg-white py-16 sm:py-20">
+    <section class="w-full bg-white py-16 sm:py-24">
         <div class="mx-auto max-w-6xl px-6">
             <!-- Consistent section heading size: 83.01px @1440 (Figma), fluid -->
             <h2 class="font-display text-[clamp(2.5rem,5.9vw,83.01px)] font-medium leading-[1.05] tracking-tight text-black">
@@ -255,7 +256,8 @@
         </div>
 
         <!-- Footer (near full-viewport, centered) -->
-        <footer class="mx-auto flex min-h-[90vh] max-w-6xl flex-col items-center justify-center px-6 py-16 text-center">
+        <!-- Mobile: content-height with padding (no vh stretch). Desktop: ~full viewport. -->
+        <footer class="mx-auto flex max-w-6xl flex-col items-center justify-center px-6 py-20 text-center sm:min-h-[90vh] sm:py-16">
             <!-- Logo height 304px @1440 (Figma), fluid -->
             <img src="./src/assets/new-version-footer-logo.webp" alt="The Nathia Reserve" class="mx-auto h-[clamp(160px,25vw,360px)] w-auto">
             <!-- 30.05px @1440 (Figma), #FFFFFF, fluid -->

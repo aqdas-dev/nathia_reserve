@@ -5,7 +5,7 @@
 
   // ---------- Waitlist form -> Google Sheet (Apps Script Web App) ----------
   var FORM_ENDPOINT =
-    "https://script.google.com/macros/s/AKfycbz1_nzCJzvip2FtYKLF1Nzd6-28NkojeenEXiTlGM6N6faDUeeQxQ1qG7prDyAmfZphvw/exec";
+    "https://script.google.com/macros/s/AKfycbzYcYqBJr9nGtFVQ-e8t2EelsHtoGsoeEpelXKYDZqIzw4M2R6tZbwb7CjRjw-yzJLBaw/exec";
 
   function initForm() {
     var form = document.getElementById("waitlist-form");
@@ -49,27 +49,28 @@
     });
   }
 
-  // ---------- Intro: play the reception video only while hovered ----------
-  // The centred-heading -> [heading | video] morph is pure CSS (:hover). JS just
-  // plays the muted video on hover and pauses it on leave (saves it running
-  // off-screen / before the user ever interacts).
+  // ---------- Intro video ----------
+  // The reveal morph is pure CSS (:hover on desktop). The <video> is muted +
+  // autoplay + loop + playsinline, so it plays on touch (where it's always
+  // visible). BUT Safari / Chrome power-saving often refuse to autoplay a video
+  // that's hidden (opacity:0 until hover) — so on hover we also call play() to
+  // guarantee it's running when revealed. We only ever play() (never pause), so
+  // touch devices are unaffected.
   function initIntroVideo() {
     var inner = document.querySelector("#intro .intro-inner");
     if (!inner) return;
     var video = inner.querySelector("video");
     if (!video) return;
-
-    inner.addEventListener("mouseenter", function () {
-      try { var p = video.play(); if (p) p.catch(function () {}); } catch (e) {}
-    });
-    inner.addEventListener("mouseleave", function () {
-      try { video.pause(); } catch (e) {}
-    });
+    function play() {
+      try { var p = video.play(); if (p && p.catch) p.catch(function () {}); } catch (e) {}
+    }
+    inner.addEventListener("mouseenter", play);
+    inner.addEventListener("pointerenter", play);
   }
 
   function boot() {
     try { initForm(); } catch (err) { /* form is a progressive enhancement */ }
-    try { initIntroVideo(); } catch (err) { /* intro video is optional */ }
+    try { initIntroVideo(); } catch (err) { /* intro video is a progressive enhancement */ }
   }
 
   if (document.readyState === "loading") {

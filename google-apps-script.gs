@@ -32,9 +32,15 @@ function doPost(e) {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
     var sheet = ss.getSheetByName("Submissions") || ss.insertSheet("Submissions");
 
-    // Header row on first run.
+    // Ensure the header row exists AND matches the current form fields. This
+    // self-heals an older deployment (e.g. a "Name / Subject" layout): if row 1
+    // isn't the current header, the correct header is inserted at the top.
+    var HEADER = ["Timestamp", "First Name", "Last Name", "Phone", "Email", "City", "Category", "Message"];
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow(["Timestamp", "First Name", "Last Name", "Phone", "Email", "City", "Category", "Message"]);
+      sheet.appendRow(HEADER);
+    } else if (sheet.getRange(1, 2).getValue() !== "First Name") {
+      sheet.insertRowBefore(1);
+      sheet.getRange(1, 1, 1, HEADER.length).setValues([HEADER]);
     }
 
     var p = (e && e.parameter) || {};
