@@ -1,282 +1,588 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Nathia Reserve</title>
-    <link rel="stylesheet" href="./dist/output.css">
+<script>document.documentElement.classList.remove('no-js')</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Nathia Reserve | Luxury Apartments in Nathia Gali — By Elevate Holdings</title>
+<meta name="description" content="The Exceptional, Reserved For You. Pakistan's most premium apartment hotel — the only address on the main Nathia Gali road, 7,900 ft in the Galiyat pines. Public release in a few weeks — register your interest." />
+<meta name="theme-color" content="#3b2c06" />
+<link rel="icon" href="./src/assets/favicon.svg" />
+<link rel="canonical" href="https://thenathiareserve.com/" />
+
+<!-- Social / WhatsApp share preview -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The Nathia Reserve — By Elevate Holdings" />
+<meta property="og:description" content="The Exceptional, Reserved For You. Pakistan's most premium apartment hotel, above the pines of Nathia Gali. Public release in a few weeks — register your interest." />
+<meta property="og:url" content="https://thenathiareserve.com/" />
+<meta property="og:image" content="https://thenathiareserve.com/src/assets/media/social/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:site_name" content="The Nathia Reserve" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://thenathiareserve.com/#org",
+      "name": "Elevate Holdings",
+      "brand": { "@type": "Brand", "name": "The Nathia Reserve" },
+      "description": "Elevate Holdings develops landmark luxury mountain reserves in Northern Pakistan. The Nathia Reserve in Nathia Gali is the first of three planned reserves.",
+      "founder": { "@id": "https://thenathiareserve.com/#founder" },
+      "url": "https://thenathiareserve.com/"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://thenathiareserve.com/#founder",
+      "name": "Ahmed Khilji",
+      "jobTitle": "Founder",
+      "worksFor": { "@id": "https://thenathiareserve.com/#org" },
+      "description": "Ahmed Khilji is the founder of Elevate Holdings, developing landmark luxury mountain reserves in Northern Pakistan.",
+      "url": "https://thenathiareserve.com/#developer",
+      "nationality": { "@type": "Country", "name": "Pakistan" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://thenathiareserve.com/#website",
+      "url": "https://thenathiareserve.com/",
+      "name": "The Nathia Reserve",
+      "publisher": { "@id": "https://thenathiareserve.com/#org" }
+    },
+    {
+      "@type": "ApartmentComplex",
+      "@id": "https://thenathiareserve.com/#property",
+      "name": "The Nathia Reserve",
+      "alternateName": "Nathia Reserve",
+      "description": "Pakistan's most premium apartment hotel — luxury studios, 1, 2 and 3-bedroom apartments and penthouses on the main Nathia Gali road at 7,900 ft in the Galiyat. Fully managed residences with hotel operation, heated outdoor and plunge pools, spa and sauna, a glass skywalk between the towers and suspended forest decks.",
+      "url": "https://thenathiareserve.com/",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Main Nathia Gali Road",
+        "addressLocality": "Nathia Gali",
+        "addressRegion": "Khyber Pakhtunkhwa",
+        "addressCountry": "PK"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 34.0725, "longitude": 73.3835 },
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Three restaurants, including outdoor terrace dining" },
+        { "@type": "LocationFeatureSpecification", "name": "Rooftop dining & bookable events venue" },
+        { "@type": "LocationFeatureSpecification", "name": "Glass skywalk between the towers, with café" },
+        { "@type": "LocationFeatureSpecification", "name": "Spa & sauna, hydrotherapy pool" },
+        { "@type": "LocationFeatureSpecification", "name": "Heated outdoor pool & plunge pool" },
+        { "@type": "LocationFeatureSpecification", "name": "Gym & yoga studios" },
+        { "@type": "LocationFeatureSpecification", "name": "Suspended forest decks" },
+        { "@type": "LocationFeatureSpecification", "name": "79-bay underground parking" },
+        { "@type": "LocationFeatureSpecification", "name": "Fully managed rental programme" }
+      ],
+      "containedInPlace": { "@type": "Place", "name": "The Galiyat, Khyber Pakhtunkhwa, Pakistan" }
+    }
+  ]
+}
+</script>
+
+<link rel="preload" as="image" href="./src/assets/media/hero/hero-poster.webp" fetchpriority="high" />
+<link rel="preload" as="image" href="./src/assets/logo-cream.svg" fetchpriority="high" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+
+<link rel="stylesheet" href="./dist/output.css?v=12">
 </head>
-<body class="bg-white font-sans text-neutral-900 antialiased">
+<body>
 
-    <!-- ===== HERO (static full-bleed aerial) ===== -->
-    <!-- Mobile: fixed ~620px (no vh stretch). Desktop: full viewport. -->
-    <section id="hero" class="relative flex min-h-[620px] w-full flex-col overflow-hidden sm:h-screen">
+<!-- PRELOADER -->
+<div id="loader" aria-hidden="true">
+  <img src="./src/assets/logo-cream.svg" alt="" />
+  <div class="lbar"><i></i></div>
+</div>
 
-        <!-- Full-bleed background image -->
-        <img src="./src/assets/new-version-1.webp" alt="The Nathia Reserve — aerial view" class="absolute inset-0 h-full w-full object-cover">
-        <!-- Scrim for text legibility -->
-        <div class="pointer-events-none absolute inset-0 bg-black/30"></div>
+<div class="grain" aria-hidden="true"></div>
+<div id="progress" aria-hidden="true"><i></i></div>
 
-        <!-- Top nav (wide translucent bar, ~114px tall @1440) -->
-        <div class="absolute inset-x-0 top-5 z-30 px-4 sm:px-6 lg:px-12 xl:px-16">
-            <div class="flex items-center justify-center rounded-xl border border-white/20 bg-[#644E23]/20 py-2.5 backdrop-blur-sm">
-                <img src="./src/assets/new-version-logo.svg" alt="The Nathia Reserve — By Elevate Holdings" class="h-[clamp(2.75rem,6.46vw,110px)] w-auto brightness-0 invert">
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#top" aria-label="The Nathia Reserve">
+    <img src="./src/assets/logo-cream.svg" alt="The Nathia Reserve" />
+  </a>
+  <div class="nav-links" aria-label="Sections">
+    <a href="#reserve">The Reserve</a>
+    <a href="#residences">Residences</a>
+    <a href="#amenities">The Estate</a>
+    <a href="#gallery">Gallery</a>
+  </div>
+  <div class="nav-right">
+    <a href="#register" class="btn nav-cta">Register Interest</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav class="mm-links" aria-label="Mobile navigation">
+    <a href="#reserve">The Reserve</a>
+    <a href="#residences">Residences</a>
+    <a href="#amenities">The Estate</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#register" class="btn">Register Interest</a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-bg" id="heroBg">
+    <img class="hero-slide on" src="./src/assets/media/hero/hero-poster.webp" alt="The Nathia Reserve at blue hour, on the main Nathia Gali road above the pine forest" fetchpriority="high" />
+    <img class="hero-slide" src="./src/assets/media/hero/hero-dusk.webp" alt="" loading="lazy" decoding="async" />
+    <img class="hero-slide" src="./src/assets/media/hero/hero-night.webp" alt="" loading="lazy" decoding="async" />
+    <img class="hero-slide" src="./src/assets/media/hero/hero-day.webp" alt="" loading="lazy" decoding="async" />
+  </div>
+  <div class="hero-inner">
+    <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">The Nathia Reserve — Luxury Apartments &amp; Apartment Hotel in Nathia Gali, by Elevate Holdings</h1>
+    <div class="eyebrow">Nathia Gali · The Galiyat · 7,900&nbsp;ft · By Elevate Holdings</div>
+    <p class="tagline">The Exceptional, Reserved For You.</p>
+    <p class="meta">Pakistan's Most Premium Apartment Hotel · Public Release In A Few Weeks</p>
+    <div class="cta-row">
+      <a href="#register" class="btn solid">Register Interest</a>
+      <a href="#reserve" class="btn ghost">Discover the Reserve</a>
+    </div>
+  </div>
+  <div class="scrollcue">Scroll<span class="line" aria-hidden="true"></span></div>
+</header>
+
+<!-- INTRO / THE RESERVE -->
+<section class="pad on-cream" id="reserve">
+  <div class="wrap">
+    <div class="reveal" style="max-width:780px">
+      <div class="eyebrow"><span class="sn">01</span>The Reserve</div>
+      <div class="rule"></div>
+      <h2 class="display lines"><span class="ln"><span>Slower days. Deeper breaths.</span></span><span class="ln"><span>True rest.</span></span></h2>
+      <p class="lead" style="margin-top:26px">High on the main road of Nathia Gali, The Nathia Reserve is Pakistan's most premium apartment hotel — Northern Pakistan's first mountain residence held to an international standard, composed in stone from the mountain and glass toward the valley, above an unbroken sweep of protected pine forest.</p>
+      <p class="lead" style="margin-top:16px">Both a private residence and a fully managed retreat — staffed, serviced and alive through all four seasons, above the sea of cloud that settles in the valley below.</p>
+    </div>
+    <div class="stats reveal d1">
+      <div class="stat">
+        <span class="stat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l6.5-12 4 6.5 2.5-4L21 20z"/><path d="M8 14.2l1.8-1.3 1.6 1.1"/></svg></span>
+        <div class="n"><span data-count="7900">0</span><span>ft</span></div>
+        <div class="l">Elevation</div>
+      </div>
+      <div class="stat">
+        <span class="stat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18"/><path d="M6 8h12M6 12h12M6 16h12"/><path d="M10.5 21v-3h3v3"/></svg></span>
+        <div class="n"><span data-count="16">0</span></div>
+        <div class="l">Storeys</div>
+      </div>
+      <div class="stat">
+        <span class="stat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>
+        <div class="n"><em class="upto">Up To</em><span data-count="20">0</span><span>%</span></div>
+        <div class="l">Rental ROI · Post-Handover</div>
+      </div>
+      <div class="stat">
+        <span class="stat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.6 7-12a7 7 0 0 0-14 0c0 5.4 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg></span>
+        <div class="n"><span data-count="1">0</span></div>
+        <div class="l">Address Of Its Kind</div>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top:18px;font-size:11px;letter-spacing:.04em;color:rgba(59,44,6,.5)">Up to 20% rental ROI shown post-handover under the Reserve's managed rental programme. Terms apply.</p>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>The Exceptional, Reserved For You · Pakistan's Most Premium Address · The Only Address On The Main Nathia Gali Road · Public Release In A Few Weeks · </span>
+    <span>The Exceptional, Reserved For You · Pakistan's Most Premium Address · The Only Address On The Main Nathia Gali Road · Public Release In A Few Weeks · </span>
+  </div>
+</div>
+
+<!-- ADDRESS BAND -->
+<section class="band">
+  <div class="bandbg" data-plx="0.12"><img src="./src/assets/media/reserve/aerial-golden.webp" alt="The Nathia Reserve at golden hour, terraced above the pine forest" loading="lazy" decoding="async" /></div>
+  <div class="wrap band-inner reveal">
+    <div class="eyebrow">Pakistan's Most Premium Address</div>
+    <h3 style="margin-top:12px">The only address on the main Nathia road. There will never be another.</h3>
+    <p>The sole development on the main Nathia Gali ridge, held alone between the protected Ayubia forest and the valley below.</p>
+  </div>
+</section>
+
+<!-- RESIDENCES -->
+<section class="pad on-cream" id="residences">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow"><span class="sn">02</span>The Residences</div>
+      <div class="rule"></div>
+      <h2 class="display lines"><span class="ln"><span>From studios</span></span><span class="ln"><span>to penthouses.</span></span></h2>
+    </div>
+    <div class="res-grid reveal">
+      <div class="res-card">
+        <div class="res-thumb"><img src="./src/assets/media/residences/studio.webp" alt="Studio interior with coffered timber ceiling and valley view" loading="lazy" decoding="async" /></div>
+        <div class="res-name">Studio</div>
+        <div class="res-type">Canopy Views</div>
+      </div>
+      <div class="res-card">
+        <div class="res-thumb"><img src="./src/assets/media/residences/1bed.webp" alt="One-bedroom residence with framed mountain artwork" loading="lazy" decoding="async" /></div>
+        <div class="res-name">1-Bedroom</div>
+        <div class="res-type">Valley Views</div>
+      </div>
+      <div class="res-card">
+        <div class="res-thumb"><img src="./src/assets/media/residences/2bed.webp" alt="Two-bedroom living and dining room with full-height windows" loading="lazy" decoding="async" /></div>
+        <div class="res-name">2-Bedroom</div>
+        <div class="res-type">Family Homes</div>
+      </div>
+      <div class="res-card">
+        <div class="res-thumb"><img src="./src/assets/media/residences/3bed.webp" alt="Three-bedroom master suite with stone fireplace" loading="lazy" decoding="async" /></div>
+        <div class="res-name">3-Bedroom</div>
+        <div class="res-type">Upper Floors</div>
+      </div>
+      <div class="res-card">
+        <div class="res-thumb"><img src="./src/assets/media/residences/penthouse-living.webp" alt="Penthouse living room at dusk" loading="lazy" decoding="async" /></div>
+        <div class="res-name">Penthouses</div>
+        <div class="res-type">Top Floors</div>
+      </div>
+    </div>
+    <div class="pent-feature reveal">
+      <div class="pf-img reveal-clip"><img src="./src/assets/media/residences/penthouse.webp" alt="Sky Penthouse private plunge pool terrace overlooking the valley at dusk" loading="lazy" decoding="async" /></div>
+      <div class="pf-txt">
+        <div class="eyebrow">The Crown</div>
+        <h3 style="margin-top:12px">The highest residences in the Galiyat.</h3>
+        <p>The Penthouses crown both towers — the largest homes in the building, held over the valley and the cloud inversion that settles below.</p>
+        <a href="#register" class="btn">Register Interest</a>
+      </div>
+    </div>
+    <div class="res-cta reveal">
+      <a href="#register" class="btn dark">Register Interest</a>
+      <span class="note">Plans and founders' pricing are released to the priority list first.</span>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="journey" id="journey" aria-roledescription="carousel" aria-label="One day at the Reserve">
+  <div class="stage">
+    <div class="jslide on" data-j="0"><img src="./src/assets/media/journey/cafe-day.webp" alt="Morning on the stone terrace café" loading="lazy" decoding="async" /></div>
+    <div class="jslide" data-j="1"><img src="./src/assets/media/journey/pool-day.webp" alt="The open-air pool under the midday sky" loading="lazy" decoding="async" /></div>
+    <div class="jslide" data-j="2"><img src="./src/assets/media/journey/spa-curtain.webp" alt="The spa's water curtain at golden hour" loading="lazy" decoding="async" /></div>
+    <div class="jslide" data-j="3"><img src="./src/assets/media/journey/facade-night.webp" alt="The Reserve under the stars" loading="lazy" decoding="async" /></div>
+    <div class="jhead">
+      <div class="eyebrow reveal">One Day at the Reserve</div>
+    </div>
+    <div class="jcaps">
+      <div class="jcap on" data-jc="0"><div class="jt">07:00 · First Light</div><div class="jl">Breakfast above the mist line.</div></div>
+      <div class="jcap" data-jc="1"><div class="jt">13:00 · Midday</div><div class="jl">Laps in the open mountain air.</div></div>
+      <div class="jcap" data-jc="2"><div class="jt">18:30 · Golden Hour</div><div class="jl">The water curtain catches the last sun.</div></div>
+      <div class="jcap" data-jc="3"><div class="jt">22:00 · Nightfall</div><div class="jl">Stars over the ridge. Silence below.</div></div>
+    </div>
+    <button class="jarrow prev" data-jarrow="-1" aria-label="Previous">&lsaquo;</button>
+    <button class="jarrow next" data-jarrow="1" aria-label="Next">&rsaquo;</button>
+    <div class="jdots"><button data-jd="0" aria-label="First light"></button><button data-jd="1" aria-label="Midday"></button><button data-jd="2" aria-label="Golden hour"></button><button data-jd="3" aria-label="Nightfall"></button></div>
+  </div>
+</section>
+
+<!-- ESTATE -->
+<section class="pad estate" id="amenities">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow"><span class="sn">03</span>The Estate</div>
+      <div class="rule"></div>
+      <h2 class="display lines"><span class="ln"><span>Everything the mountain asks for.</span></span><span class="ln"><span>Nothing it doesn't.</span></span></h2>
+    </div>
+
+    <div class="chapter">
+      <div class="ch-fig reveal-clip">
+        <img class="vposter" src="./src/assets/media/estate/pool-sunset.webp" alt="The heated infinity pool at sunset, overlooking the valley" loading="lazy" decoding="async" />
+        <span class="tag">The Infinity Edge</span>
+      </div>
+      <div class="ch-txt reveal d1">
+        <div class="eyebrow">Chapter I</div>
+        <h3>The Water</h3>
+        <p>A heated outdoor pool held above the valley, and a plunge pool at the edge of the ridge — open through the snow, above the cloud that settles below.</p>
+        <ul>
+          <li>Heated outdoor pool</li>
+          <li>Plunge pool</li>
+          <li>Open through the winter</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="chapter rev">
+      <div class="ch-fig reveal-clip"><div class="plx" data-plx="0.1"><img src="./src/assets/media/estate/spa-curtain.webp" alt="Spa relaxation hall behind a curtain of falling water at sunset" loading="lazy" decoding="async" /></div><span class="tag">The Spa</span></div>
+      <div class="ch-txt reveal d1">
+        <div class="eyebrow">Chapter II</div>
+        <h3>The Spa &amp; Sauna</h3>
+        <p>A spa and sauna set into the quiet of the hillside, with a hydrotherapy pool facing the ridgelines — the calm counterpoint to the mountain air.</p>
+        <ul>
+          <li>Spa &amp; sauna</li>
+          <li>Hydrotherapy pool</li>
+          <li>Facing the Galiyat ridgelines</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKYWALK VIDEO BAND -->
+  <section class="band short">
+    <div class="bandbg">
+      <img class="vposter" src="./src/assets/media/estate/skywalk-poster.webp" alt="" loading="lazy" decoding="async" aria-hidden="true" />
+      <video class="bandvid" autoplay muted loop playsinline preload="auto" poster="./src/assets/media/estate/skywalk-poster.webp">
+        <source src="./src/assets/media/estate/skywalk.mp4?v=12" type="video/mp4" />
+      </video>
+    </div>
+    <div class="wrap band-inner reveal">
+      <div class="eyebrow">Chapter III</div>
+      <h3>The Skywalk</h3>
+      <p>A glass bridge floating between the two towers, with its own café — the forest far below your feet, a sky lobby at either end.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="chapter">
+      <div class="ch-fig reveal-clip">
+        <img class="vposter" src="./src/assets/media/estate/pod-deck.webp" alt="Woven dining pod suspended over the forest canopy" loading="lazy" decoding="async" />
+        <video class="bandvid" autoplay muted loop playsinline preload="auto" poster="./src/assets/media/estate/pod-deck.webp" aria-hidden="true">
+          <source src="./src/assets/media/estate/pod.mp4?v=12" type="video/mp4" />
+        </video>
+        <span class="tag">The Decks</span>
+      </div>
+      <div class="ch-txt reveal d1">
+        <div class="eyebrow">Chapter IV</div>
+        <h3>The Suspended Decks</h3>
+        <p>Open-air decks cantilevered out into the pines — platforms that reach past the façade and over the forest, the valley and its cloud inversion falling away below.</p>
+        <ul>
+          <li>Suspended forest decks</li>
+          <li>Reaching out into the canopy</li>
+          <li>Above the cloud inversion</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="chapter rev">
+      <div class="ch-fig reveal-clip"><div class="plx" data-plx="0.1"><img src="./src/assets/media/estate/dining-night.webp" alt="Signature restaurant interior at night" loading="lazy" decoding="async" /></div><span class="tag">The Table</span></div>
+      <div class="ch-txt reveal d1">
+        <div class="eyebrow">Chapter V</div>
+        <h3>The Table</h3>
+        <p>Three restaurants, including outdoor terrace dining among the pines — and rooftop dining with a bookable events venue for weddings and private occasions at 2,400&nbsp;m.</p>
+        <ul>
+          <li>Three restaurants</li>
+          <li>Outdoor terrace dining</li>
+          <li>Rooftop dining &amp; events venue</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARRIVAL VIDEO BAND -->
+  <section class="band short">
+    <div class="bandbg">
+      <img class="vposter" src="./src/assets/media/estate/arrival-poster.webp" alt="" loading="lazy" decoding="async" aria-hidden="true" />
+      <video class="bandvid" autoplay muted loop playsinline preload="auto" poster="./src/assets/media/estate/arrival-poster.webp">
+        <source src="./src/assets/media/estate/arrival.mp4?v=12" type="video/mp4" />
+      </video>
+    </div>
+    <div class="wrap band-inner reveal">
+      <div class="eyebrow">The Arrival</div>
+      <h3 style="margin-top:12px">You arrive under cover, at 2,400&nbsp;m.</h3>
+      <p>Seventy-nine covered bays drawn into the mountain — out of the weather and into the double-height reception. The drive north ends here.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="trio reveal">
+      <div class="t"><img src="./src/assets/media/estate/gym.webp" alt="Fitness pavilion with mountain views" loading="lazy" decoding="async" /><span class="ts">Movement</span><span class="tt">The Fitness Pavilion</span></div>
+      <div class="t"><img src="./src/assets/media/estate/yoga-zen.webp" alt="Yoga studio with a glass wall onto the forest" loading="lazy" decoding="async" /><span class="ts">Stillness</span><span class="tt">The Yoga Studio</span></div>
+      <div class="t"><video class="bandvid" autoplay muted loop playsinline preload="auto" poster="./src/assets/media/estate/reception.webp"><source src="./src/assets/media/estate/reception.mp4?v=12" type="video/mp4" /></video><span class="ts">Welcome</span><span class="tt">The Grand Lobby</span></div>
+    </div>
+
+    <div class="wowlist reveal">
+      <div>Three restaurants, incl. outdoor terrace dining</div>
+      <div>Rooftop dining &amp; bookable events venue at 2,400&nbsp;m</div>
+      <div>The glass Skywalk between the towers, with café</div>
+      <div>Spa &amp; sauna</div>
+      <div>Hydrotherapy pool</div>
+      <div>Heated outdoor pool</div>
+      <div>Plunge pool</div>
+      <div>Gym &amp; yoga studios</div>
+      <div>Suspended forest decks</div>
+      <div>Double-height reception &amp; hotel-grade corridors</div>
+      <div>79-bay underground parking</div>
+      <div>Owners' managed rental programme</div>
+    </div>
+  </div>
+</section>
+
+<!-- RAIL GALLERY -->
+<section class="railwrap" id="gallery">
+  <div class="wrap reveal">
+    <div class="eyebrow" style="color:var(--color-olive)"><span class="sn">04</span>First Look</div>
+    <div class="rule" style="background:var(--color-olive)"></div>
+    <h2 class="display lines" style="color:var(--color-ink)"><span class="ln"><span>Inside the Reserve.</span></span></h2>
+  </div>
+  <div class="rail" id="rail">
+    <div class="ri"><img src="./src/assets/media/gallery/facade-tower-sunset.webp" alt="The tower at sunset" loading="lazy" decoding="async" /><span class="cap">Golden Hour</span></div>
+    <div class="ri"><img src="./src/assets/media/gallery/facade-terraces-pool.webp" alt="Cascading terraces and pool" loading="lazy" decoding="async" /><span class="cap">The Terraces</span></div>
+    <div class="ri"><img src="./src/assets/media/gallery/facade-snow-night.webp" alt="The Reserve in snowfall at night" loading="lazy" decoding="async" /><span class="cap">First Snow</span></div>
+    <div class="ri"><img src="./src/assets/media/gallery/hydro-night.webp" alt="Hydrotherapy hall against the night peaks" loading="lazy" decoding="async" /><span class="cap">Hydrotherapy</span></div>
+    <div class="ri"><img src="./src/assets/media/gallery/plunge.webp" alt="Plunge pool at the edge of the ridge" loading="lazy" decoding="async" /><span class="cap">The Plunge</span></div>
+    <div class="ri"><img src="./src/assets/media/gallery/pod-bridge.webp" alt="Suspended walkway to the forest pod" loading="lazy" decoding="async" /><span class="cap">The Pods</span></div>
+    <div class="ri"><img src="./src/assets/media/gallery/dining-terrace.webp" alt="Twilight dining terraces" loading="lazy" decoding="async" /><span class="cap">The Terrace</span></div>
+    <div class="ri"><img src="./src/assets/media/founder/developer-bg.webp" alt="Aerial view of the Reserve on the ridge" loading="lazy" decoding="async" /><span class="cap">The Ridge</span></div>
+    <!-- duplicate set for the seamless marquee loop -->
+    <div class="ri" aria-hidden="true"><img src="./src/assets/media/gallery/facade-tower-sunset.webp" alt="" loading="lazy" decoding="async" /><span class="cap">Golden Hour</span></div>
+    <div class="ri" aria-hidden="true"><img src="./src/assets/media/gallery/facade-terraces-pool.webp" alt="" loading="lazy" decoding="async" /><span class="cap">The Terraces</span></div>
+    <div class="ri" aria-hidden="true"><img src="./src/assets/media/gallery/facade-snow-night.webp" alt="" loading="lazy" decoding="async" /><span class="cap">First Snow</span></div>
+    <div class="ri" aria-hidden="true"><img src="./src/assets/media/gallery/hydro-night.webp" alt="" loading="lazy" decoding="async" /><span class="cap">Hydrotherapy</span></div>
+    <div class="ri" aria-hidden="true"><img src="./src/assets/media/gallery/plunge.webp" alt="" loading="lazy" decoding="async" /><span class="cap">The Plunge</span></div>
+    <div class="ri" aria-hidden="true"><img src="./src/assets/media/gallery/pod-bridge.webp" alt="" loading="lazy" decoding="async" /><span class="cap">The Pods</span></div>
+    <div class="ri" aria-hidden="true"><img src="./src/assets/media/gallery/dining-terrace.webp" alt="" loading="lazy" decoding="async" /><span class="cap">The Terrace</span></div>
+    <div class="ri" aria-hidden="true"><img src="./src/assets/media/founder/developer-bg.webp" alt="" loading="lazy" decoding="async" /><span class="cap">The Ridge</span></div>
+  </div>
+</section>
+
+<!-- WINTER BAND -->
+<section class="band short">
+  <div class="bandbg">
+    <img class="vposter" src="./src/assets/media/gallery/facade-snow-night.webp" alt="Snow falling over the lit Reserve at night" loading="lazy" decoding="async" />
+  </div>
+  <div class="wrap band-inner reveal">
+    <div class="eyebrow">Four Seasons High</div>
+    <h3 style="margin-top:12px">Snow falls. The Reserve stays warm.</h3>
+    <p>Heated interiors, covered arrival and a staffed estate through the winter — while the hill stations close, the Reserve is at its most beautiful.</p>
+  </div>
+</section>
+
+<!-- ROI -->
+<section class="pad roi" id="roi">
+  <div class="wrap roi-grid">
+    <div class="roi-big reveal">
+      <span class="upto">Up To</span>
+      <div class="pct">20<sup>%</sup></div>
+      <div class="cap">Rental ROI · Post-Handover</div>
+    </div>
+    <div class="roi-txt reveal d1">
+      <div class="eyebrow" style="color:var(--color-olive)"><span class="sn">05</span>Ownership That Pays</div>
+      <div class="rule" style="background:var(--color-olive)"></div>
+      <h2 class="display lines"><span class="ln"><span>Own it. Earn from it.</span></span><span class="ln"><span>Never worry about it.</span></span></h2>
+      <p class="lead" style="margin-top:20px">After handover, the Reserve operates as a full-service apartment hotel. Your residence earns as a luxury suite whenever you're away — one of the most premium projects in Pakistan, carrying one of its strongest rental returns.</p>
+      <ul>
+        <li>Fully managed by the Reserve's own hotel team</li>
+        <li>Bookings, housekeeping and maintenance — all handled</li>
+        <li>Hands-free income. No landlord stress. Ever.</li>
+      </ul>
+      <p class="roi-fine">Projected under the Reserve's managed rental programme. Terms apply.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEVELOPER / FOUNDER -->
+<section class="pad dev" id="developer">
+  <div class="bg"><img src="./src/assets/media/founder/developer-bg.webp" alt="" loading="lazy" decoding="async" aria-hidden="true" /></div>
+  <div class="wrap inner reveal">
+    <div class="founder-grid">
+      <div>
+        <div class="eyebrow">Elevate Holdings</div>
+        <h2 class="display lines" style="margin-top:16px"><span class="ln"><span>Three reserves. Five years.</span></span><span class="ln"><span>One standard.</span></span></h2>
+        <p class="lead" style="margin-top:20px;color:var(--cream-dim)">Elevate Holdings builds only in Northern Pakistan — landmark mountain residences held to an international standard, and built completely in the open. The Nathia Reserve is the first of three planned across five years.</p>
+        <p class="founder-quote">"The first real-estate project in Pakistan built completely in the open. Three projects in five years. This is project one."</p>
+      </div>
+      <div class="founder-fig">
+        <div class="ff"><img src="./src/assets/media/founder/founder.webp" alt="Ahmed Khilji, Founder of Elevate Holdings" loading="lazy" decoding="async" /></div>
+        <div class="fname">Ahmed Khilji</div>
+        <div class="frole">Founder · Elevate Holdings</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section class="pad reg" id="register">
+  <div class="wrap reg-grid">
+    <div class="reg-copy reveal">
+      <div class="eyebrow"><span class="sn">06</span>Public Release · In A Few Weeks</div>
+      <div class="rule"></div>
+      <h2 class="display lines"><span class="ln"><span>Register</span></span><span class="ln"><span>your interest.</span></span></h2>
+      <p class="lead" style="margin-top:22px">A limited number of residences are released first — at founders' terms — to those who register before the public launch.</p>
+      <div class="reg-points">
+        <div class="rp"><div class="rn">I.</div><p><b>First allocation.</b> Priority choice of residence and floor before public release.</p></div>
+        <div class="rp"><div class="rn">II.</div><p><b>Founders' pricing.</b> The most favourable terms the Reserve will ever offer.</p></div>
+        <div class="rp"><div class="rn">III.</div><p><b>The full particulars.</b> Floor plans, specifications and payment plans — sent privately.</p></div>
+      </div>
+    </div>
+    <div class="card reveal d1">
+      <div id="formBlock">
+        <h3>Join the founders' list</h3>
+        <p class="sub">It takes twenty seconds. Our team will reach you personally.</p>
+        <form id="regForm" class="reg-form" novalidate>
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="field">
+            <label for="f-name">Full Name *</label>
+            <input id="f-name" name="name" type="text" placeholder="Your name" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="f-phone">WhatsApp Number *</label>
+            <input id="f-phone" name="whatsapp" type="tel" placeholder="+92 3XX XXXXXXX" autocomplete="tel" inputmode="tel" required />
+          </div>
+          <div class="frow">
+            <div class="field">
+              <label for="f-email">Email *</label>
+              <input id="f-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" inputmode="email" required />
             </div>
-        </div>
-
-        <!-- Headline (vertically centered) + CTA (pinned lower) -->
-        <div class="relative z-20 flex flex-1 flex-col items-center justify-center px-6 text-center">
-            <h1 class="font-display text-[clamp(2rem,3.6vw,4rem)] font-normal leading-[1.15] tracking-tight text-[#F5EFE1]">
-                The Pinnacle of<br>Premium Mountain Living
-            </h1>
-            <a href="#contact" class="absolute bottom-[18%] left-1/2 -translate-x-1/2 cursor-pointer whitespace-nowrap rounded-md bg-[#FFFFFFEE] px-12 py-3 font-display text-lg text-neutral-800 transition hover:bg-white">Learn More</a>
-        </div>
-    </section>
-
-    <!-- ===== INTRO (centered heading -> [heading | video] on hover) ===== -->
-    <section id="intro" class="intro relative flex h-[85vh] min-h-[600px] w-full items-center overflow-hidden bg-white">
-        <div class="intro-inner relative mx-auto flex w-full max-w-6xl items-center px-6">
-            <div id="intro-text" class="intro-text">
-                <h2 class="font-display font-medium leading-[1.15] tracking-tight text-neutral-900">
-                    A Luxury Apartment Hotel Crafted For Those Who Seek Timeless Design, Elevated Comfort, And The Quiet Beauty Of The Mountains.
-                </h2>
+            <div class="field">
+              <label for="f-city">City *</label>
+              <input id="f-city" name="city" type="text" placeholder="Lahore · Dubai · London" autocomplete="address-level2" required />
             </div>
-            <div class="intro-media">
-                <video src="./src/assets/reception_lobby-2.mp4" muted loop autoplay playsinline preload="auto" class="h-full w-full rounded-lg object-cover"></video>
+          </div>
+          <div class="field">
+            <label for="f-int">Interested In *</label>
+            <div class="selwrap">
+              <select id="f-int" name="interested_in" required>
+                <option value="" selected disabled>Select an option</option>
+                <option>Studio</option>
+                <option>1-Bedroom</option>
+                <option>2-Bedroom</option>
+                <option>3-Bedroom</option>
+                <option>Penthouse</option>
+                <option>Advise me</option>
+              </select>
             </div>
-        </div>
-    </section>
+          </div>
+          <div class="form-error" id="formError">Something interrupted the connection. Please try again.</div>
+          <button class="btn btn-submit" id="submitBtn" type="submit">Register Interest</button>
+          <p class="consent">Your details remain private to The Nathia Reserve and Elevate Holdings, and are used only to contact you about this project.</p>
+        </form>
+      </div>
+      <div class="success" id="successBlock">
+        <div class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg></div>
+        <div class="sh">Welcome to the Reserve.</div>
+        <p>You're on the founders' list. Our team will reach you on WhatsApp shortly with the floor plans and founders' terms.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- ===== EXPERIENCE ===== -->
-    <!-- No top padding on desktop: the 85vh intro already leaves a centered gap
-         above, so this keeps the whitespace around the intro heading balanced. -->
-    <section id="experience" class="w-full bg-white py-16 sm:pt-0 sm:pb-24">
-        <div class="mx-auto max-w-5xl px-6 text-center">
-            <!-- 92.28px @1440 (Figma), fluid; capped so it holds at ≥~1400px -->
-            <h2 class="font-display text-[clamp(2.75rem,6.7vw,92.28px)] font-medium leading-[1.05] tracking-tight text-black">
-                Experience More<br>Than A Hotel
-            </h2>
-            <!-- 35.29px @1440 (Figma), fluid. Hard 3-line break on desktop only;
-                 wraps naturally below lg so the long lines never overflow. -->
-            <p class="mx-auto mt-8 text-[clamp(1.125rem,2.5vw,35.29px)] leading-relaxed text-black">
-                It's a destination designed around wellness, leisure, <br class="hidden lg:inline">and unforgettable moments. The largest project of <br class="hidden lg:inline">Galiyat with unparalleled views.
-            </p>
-        </div>
-    </section>
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <img class="flogo" src="./src/assets/logo-cream.svg" alt="The Nathia Reserve" loading="lazy" />
+    <div class="fby">By Elevate Holdings</div>
+    <div class="fsite">thenathiareserve.com</div>
+    <div class="floc">Nathia Gali, Galiyat · 34.07° N 73.38° E · 2,400 m</div>
+    <div class="fsocial">
+      <a href="#" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0Zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03Zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162ZM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4Zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439Z"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
+    </div>
+    <p class="fdisc">All renders and imagery are artist's impressions (CGI by Noor Khan Design Studio). Registration of interest does not constitute an offer for sale, a reservation or a contract. Details, specifications, dates and releases may change without notice.</p>
+    <div class="fcopy">© MMXXVI Elevate Holdings. All rights reserved.</div>
+  </div>
+</footer>
 
-    <!-- ===== IMAGE MARQUEE (infinite left-scroll · 3 per screen · captions · pause on hover) ===== -->
-    <!-- Set A and Set B captions MUST stay identical (Set B is the seamless-loop duplicate). -->
-    <section class="w-full overflow-hidden bg-white py-16 sm:py-24">
-        <div class="flex w-max animate-marquee items-start gap-5 pr-5 hover:[animation-play-state:paused]">
-            <!-- Slide set A -->
-            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]">
-                <img src="./src/assets/new-version-2-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
-                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Luxury accommodations.</figcaption>
-            </figure>
-            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]">
-                <img src="./src/assets/new-version-3-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
-                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Curated dining.</figcaption>
-            </figure>
-            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]">
-                <img src="./src/assets/new-version-4-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
-                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">The only project on main <br> Nathia Gali road.</figcaption>
-            </figure>
-            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]">
-                <img src="./src/assets/new-version-5-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
-                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Spa experiences.</figcaption>
-            </figure>
-            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]">
-                <img src="./src/assets/new-version-6-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
-                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Connection with nature.</figcaption>
-            </figure>
-            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]">
-                <img src="./src/assets/new-version-7-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
-                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Penthouses with their exclusive <br> infinity pools.</figcaption>
-            </figure>
-            <!-- Slide set B (duplicate for seamless loop) -->
-            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]" aria-hidden="true">
-                <img src="./src/assets/new-version-2-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
-                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Luxury accommodations.</figcaption>
-            </figure>
-            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]" aria-hidden="true">
-                <img src="./src/assets/new-version-3-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
-                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Curated dining.</figcaption>
-            </figure>
-            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]" aria-hidden="true">
-                <img src="./src/assets/new-version-4-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
-                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">The only project on main <br> Nathia Gali road.</figcaption>
-            </figure>
-            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]" aria-hidden="true">
-                <img src="./src/assets/new-version-5-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
-                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Spa experiences.</figcaption>
-            </figure>
-            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]" aria-hidden="true">
-                <img src="./src/assets/new-version-6-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
-                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Connection with nature.</figcaption>
-            </figure>
-            <figure class="w-[72vw] shrink-0 sm:w-[calc((100vw-2.5rem)/3)]" aria-hidden="true">
-                <img src="./src/assets/new-version-7-slider.webp" alt="" class="aspect-[470/516] w-full object-cover">
-                <figcaption class="mt-3 font-display text-[clamp(1.05rem,1.95vw,26px)] capitalize text-[#A7A4A4]">Penthouses with their exclusive <br> infinity pools.</figcaption>
-            </figure>
-        </div>
-    </section>
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="#register" class="btn solid">Register Interest</a>
+</div>
 
-    <!-- ===== CRAFTED FOR EVERY MOMENT ===== -->
-    <section class="w-full bg-white py-16 sm:py-24">
-        <div class="mx-auto max-w-6xl px-6">
-            <!-- Consistent section heading size: 83.01px @1440 (Figma), fluid -->
-            <h2 class="font-display text-[clamp(2.5rem,5.9vw,83.01px)] font-medium leading-[1.05] tracking-tight text-black">
-                Crafted For<br>Every Moment
-            </h2>
+<!-- LIGHTBOX -->
+<div class="lb" id="lb"><span class="lbx">&times;</span><img id="lbImg" src="" alt="Expanded view" /></div>
 
-            <div class="mt-12 space-y-4 sm:mt-16 sm:space-y-5">
-                <!-- Row 1 -->
-                <div class="grid grid-cols-1 gap-4 sm:grid-cols-5 sm:gap-5">
-                    <figure class="relative sm:col-span-3">
-                        <img src="./src/assets/new-version-8.webp" alt="Luxury Suites & Penthouses" class="h-64 w-full rounded-md object-cover sm:h-[460px]">
-                        <figcaption class="absolute bottom-4 left-4 font-display text-[clamp(0.9rem,1.35vw,18.51px)] text-[#FFFEFE] drop-shadow">Luxury Suites &amp; Penthouses</figcaption>
-                    </figure>
-                    <figure class="relative sm:col-span-2">
-                        <img src="./src/assets/new-version-9.webp" alt="Signature Restaurants" class="h-64 w-full rounded-md object-cover sm:h-[460px]">
-                        <figcaption class="absolute bottom-4 left-4 font-display text-[clamp(0.9rem,1.35vw,18.51px)] text-[#FFFEFE] drop-shadow">Signature Restaurants</figcaption>
-                    </figure>
-                </div>
-                <!-- Row 2 -->
-                <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
-                    <figure class="relative">
-                        <img src="./src/assets/new-version-10.webp" alt="Outdoor Dining" class="h-64 w-full rounded-md object-cover sm:h-[380px]">
-                        <figcaption class="absolute bottom-4 left-4 font-display text-[clamp(0.9rem,1.35vw,18.51px)] text-[#FFFEFE] drop-shadow">Outdoor Dining</figcaption>
-                    </figure>
-                    <figure class="relative">
-                        <img src="./src/assets/new-version-11.webp" alt="Skywalk Bridge" class="h-64 w-full rounded-md object-cover sm:h-[380px]">
-                        <figcaption class="absolute bottom-4 left-4 font-display text-[clamp(0.9rem,1.35vw,18.51px)] text-[#FFFEFE] drop-shadow">Skywalk Bridge</figcaption>
-                    </figure>
-                    <figure class="relative">
-                        <img src="./src/assets/new-version-12.webp" alt="Plunge Pool" class="h-64 w-full rounded-md object-cover sm:h-[380px]">
-                        <figcaption class="absolute bottom-4 left-4 font-display text-[clamp(0.9rem,1.35vw,18.51px)] text-[#FFFEFE] drop-shadow">Plunge Pool</figcaption>
-                    </figure>
-                </div>
-                <!-- Row 3 -->
-                <div class="grid grid-cols-1 gap-4 sm:grid-cols-5 sm:gap-5">
-                    <figure class="relative sm:col-span-2">
-                        <img src="./src/assets/new-version-13.webp" alt="Private dining pavilion" class="h-64 w-full rounded-md object-cover sm:h-[420px]">
-                        <figcaption class="absolute bottom-4 left-4 font-display text-[clamp(0.9rem,1.35vw,18.51px)] text-[#FFFEFE] drop-shadow">Suspended Decks</figcaption>
-                    </figure>
-                    <figure class="relative sm:col-span-3">
-                        <img src="./src/assets/new-version-14.webp" alt="Indoor hydrotherapy pool" class="h-64 w-full rounded-md object-cover sm:h-[420px]">
-                        <figcaption class="absolute bottom-4 left-4 font-display text-[clamp(0.9rem,1.35vw,18.51px)] text-[#FFFEFE] drop-shadow">Hydrotherapy Pool</figcaption>
-                    </figure>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== MEET THE FOUNDER (portrait left · content right) ===== -->
-    <section class="w-full overflow-hidden bg-white py-16 sm:py-24">
-        <div class="mx-auto max-w-6xl px-6">
-            <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
-                <!-- Portrait (left) -->
-                <figure class="lg:order-1">
-                    <img src="./src/assets/new-version-15.webp" alt="Ahmed Khilji, Founder of The Nathia Reserve" class="aspect-[3/4] w-full rounded-md object-cover">
-                </figure>
-                <!-- Content (right) -->
-                <div class="lg:order-2">
-                    <!-- Consistent section heading size: 83.01px @1440 (Figma), fluid -->
-                    <h2 class="font-display text-[clamp(2.5rem,5.9vw,83.01px)] font-medium leading-[1.05] tracking-tight text-black">
-                        Meet The<br>Founder
-                    </h2>
-                    <p class="mt-8 max-w-xl text-[clamp(1rem,1.5vw,20.81px)] leading-relaxed text-black">
-                        The Nathia Reserve was envisioned as more than a destination. It was created to redefine luxury mountain hospitality through thoughtful design, exceptional experiences, and a deep appreciation for the natural beauty of Nathia Gali
-                    </p>
-                    <p class="mt-6 max-w-xl text-[clamp(1rem,1.5vw,20.81px)] leading-relaxed text-black">
-                        Our vision has always been to create a place where timeless hospitality meets the tranquility of the mountains.
-                    </p>
-                    <p class="mt-10 font-display">
-                        <span class="text-[clamp(1.75rem,3.15vw,44.3px)] font-semibold tracking-tight text-black">Ahmed Khilji</span>
-                        <span class="ml-2 align-middle text-sm text-neutral-500">Founder</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== CONTACT + FOOTER ===== -->
-    <section id="contact" class="w-full bg-[#3b2c06] text-[#f0ece1]">
-        <!-- Contact -->
-        <div class="mx-auto max-w-7xl px-6 pt-16 sm:pt-24">
-            <!-- Form column fixed at its Figma width (674px @1440); stacks below xl -->
-            <div class="grid grid-cols-1 items-center gap-10 xl:grid-cols-[1fr_674px]">
-                <!-- Consistent section heading size: 83.01px @1440 (Figma), fluid -->
-                <h2 class="font-display text-[clamp(2.5rem,5.9vw,83.01px)] font-medium leading-[1.05] tracking-tight">Contact Us</h2>
-
-                <!-- Waitlist form card (674px wide @1440) -->
-                <div class="mx-auto w-full max-w-[674px] rounded-2xl bg-white p-10 text-neutral-900 sm:p-14">
-                    <!-- 38.05px @1440 (Figma), fluid -->
-                    <h3 class="font-display text-[clamp(1.6rem,2.75vw,38.05px)] font-medium text-black">Join The Waitlist</h3>
-                    <form id="waitlist-form" class="mt-10 grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2">
-                        <div>
-                            <label class="block text-[clamp(1rem,1.65vw,22.68px)] text-black">First Name</label>
-                            <input type="text" name="FirstName" required class="mt-3 w-full border-b border-neutral-300 bg-transparent pb-3 text-lg text-neutral-900 outline-none transition focus:border-neutral-500">
-                        </div>
-                        <div>
-                            <label class="block text-[clamp(1rem,1.65vw,22.68px)] text-black">Last Name</label>
-                            <input type="text" name="LastName" class="mt-3 w-full border-b border-neutral-300 bg-transparent pb-3 text-lg text-neutral-900 outline-none transition focus:border-neutral-500">
-                        </div>
-                        <div>
-                            <label class="block text-[clamp(1rem,1.65vw,22.68px)] text-black">Phone No</label>
-                            <input type="tel" name="Phone" class="mt-3 w-full border-b border-neutral-300 bg-transparent pb-3 text-lg text-neutral-900 outline-none transition focus:border-neutral-500">
-                        </div>
-                        <div>
-                            <label class="block text-[clamp(1rem,1.65vw,22.68px)] text-black">Email Address</label>
-                            <input type="email" name="Email" required class="mt-3 w-full border-b border-neutral-300 bg-transparent pb-3 text-lg text-neutral-900 outline-none transition focus:border-neutral-500">
-                        </div>
-                        <div>
-                            <label class="block text-[clamp(1rem,1.65vw,22.68px)] text-black">City</label>
-                            <input type="text" name="City" class="mt-3 w-full border-b border-neutral-300 bg-transparent pb-3 text-lg text-neutral-900 outline-none transition focus:border-neutral-500">
-                        </div>
-                        <div>
-                            <label class="block text-[clamp(1rem,1.65vw,22.68px)] text-black">Category</label>
-                            <select name="Category" class="mt-3 w-full border-b border-neutral-300 bg-transparent pb-3 text-lg text-neutral-900 outline-none transition focus:border-neutral-500">
-                                <option value="" disabled selected>Select a category</option>
-                                <option value="1 Bed">1 Bed</option>
-                                <option value="2 Bed">2 Bed</option>
-                                <option value="3 Bed">3 Bed</option>
-                                <option value="Penthouse">Penthouse</option>
-                            </select>
-                        </div>
-                        <div class="sm:col-span-2">
-                            <label class="block text-[clamp(1rem,1.65vw,22.68px)] text-black">Message</label>
-                            <textarea rows="2" name="Message" class="mt-3 w-full resize-none border-b border-neutral-300 bg-transparent pb-3 text-lg text-neutral-900 outline-none transition focus:border-neutral-500"></textarea>
-                        </div>
-                        <div class="sm:col-span-2">
-                            <button type="submit" class="cursor-pointer rounded-md bg-[#3b2c06] px-10 py-3.5 text-base font-medium text-white transition hover:bg-[#5a4510] disabled:cursor-not-allowed disabled:opacity-60">Submit</button>
-                            <p id="form-status" class="mt-3 text-sm" role="status" aria-live="polite"></p>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer (near full-viewport, centered) -->
-        <!-- Mobile: content-height with padding (no vh stretch). Desktop: ~full viewport. -->
-        <footer class="mx-auto flex max-w-6xl flex-col items-center justify-center px-6 py-20 text-center sm:min-h-[90vh] sm:py-16">
-            <!-- Logo height 304px @1440 (Figma), fluid -->
-            <img src="./src/assets/new-version-footer-logo.webp" alt="The Nathia Reserve" class="mx-auto h-[clamp(160px,25vw,360px)] w-auto">
-            <!-- 30.05px @1440 (Figma), #FFFFFF, fluid -->
-            <div class="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-2 font-display text-[clamp(1.25rem,2.15vw,30.05px)] text-white">
-                <span>+1(819) 000-000-00</span>
-                <span>name123@gmail.com</span>
-            </div>
-            <!-- Icons 25×25 -->
-            <div class="mt-8 flex items-center justify-center gap-6 text-white/85">
-                <a href="#" aria-label="Facebook" class="transition hover:text-white"><svg class="h-[25px] w-[25px]" viewBox="0 0 24 24" fill="currentColor"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
-                <a href="#" aria-label="Instagram" class="transition hover:text-white"><svg class="h-[25px] w-[25px]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0Zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03Zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162ZM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4Zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439Z"/></svg></a>
-                <a href="#" aria-label="LinkedIn" class="transition hover:text-white"><svg class="h-[25px] w-[25px]" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-                <a href="#" aria-label="YouTube" class="transition hover:text-white"><svg class="h-[25px] w-[25px]" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg></a>
-            </div>
-        </footer>
-    </section>
-
-    <script src="./src/main.js"></script>
+<script src="./src/main.js?v=12"></script>
 </body>
 </html>

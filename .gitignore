@@ -4,3 +4,18 @@ node_modules/
 # serves directly (deploy runs no build — see vercel.json).
 dist/*
 !dist/output.css
+
+# Confidential — the client brief contains non-public pricing/dates/strategy.
+docs/
+
+# Raw Drive render dump (source only). The web-optimised picks live in
+# src/assets/media/ and ARE committed; the raw PNGs are not.
+src/assets/_incoming/
+
+# Large full-page reference screenshot
+screencapture-*.png
+
+# Internal working docs — keep out of the repo (they reference dead brand names
+# and internal compliance notes that must not appear in any committed asset).
+HANDOFF.md
+MEDIA-GUIDE.md
