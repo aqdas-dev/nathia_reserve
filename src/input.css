@@ -433,7 +433,9 @@ html.no-js .hero-bg .hero-slide.on { opacity: 1; }
 .railwrap .eyebrow { color: var(--color-olive); }
 .railwrap .wrap { margin-bottom: clamp(48px, 6vw, 76px); }
 .rail { display: flex; width: max-content; will-change: transform; animation: railslide 68s linear infinite; }
-.railwrap:hover .rail { animation-play-state: paused; }
+/* pause only when the pointer is over the image row itself (JS toggles the
+   class on the rail's own mouseenter/leave — not the heading/whitespace) */
+.rail.is-paused { animation-play-state: paused; }
 @keyframes railslide { to { transform: translateX(-50%); } }
 .rail .ri { position: relative; width: clamp(300px, 34vw, 500px); aspect-ratio: 4 / 3; overflow: hidden; flex: none; cursor: zoom-in; margin-right: 20px; }
 .rail .ri img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.8s var(--ease-lux); filter: saturate(0.92); }

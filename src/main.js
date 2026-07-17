@@ -185,6 +185,15 @@
     });
   })();
 
+  // ---------- pause the gallery marquee only while the pointer is over the
+  // image row itself (not the heading / surrounding whitespace) ----------
+  (function () {
+    var rail = document.getElementById("rail");
+    if (!rail) return;
+    rail.addEventListener("mouseenter", function () { rail.classList.add("is-paused"); });
+    rail.addEventListener("mouseleave", function () { rail.classList.remove("is-paused"); });
+  })();
+
   // ---------- SCROLL ENGINE: progress bar, nav, parallax ----------
   // (The gallery rail now runs as a pure-CSS marquee and the journey is a
   //  self-driven carousel — neither is scroll-linked any more.)
