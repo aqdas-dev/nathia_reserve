@@ -387,6 +387,33 @@ html.no-js .hero-bg .hero-slide.on { opacity: 1; }
   .band .bandbg:not([data-plx]) > img:only-child { animation: kenburns 34s ease-in-out infinite alternate; transform-origin: 50% 50%; will-change: transform; }
 }
 
+/* ---------- ambient Ken Burns loop on framed images ----------
+   Every cover-cropped image slowly zooms out and drifts, then reverses —
+   so nothing sits dead-still. Subtle range (min scale 1.035 keeps the ±1%
+   drift from ever exposing an edge). Disabled for reduced-motion. */
+@keyframes kb-loop { from { transform: scale(1.08) translate(-1%, 0.6%); } to { transform: scale(1.035) translate(1%, -0.6%); } }
+@media (prefers-reduced-motion: no-preference) {
+  .res-card .res-thumb img,
+  .rail .ri img,
+  .trio .t img,
+  .founder-fig .ff img,
+  .dev .bg img,
+  .band .bandbg[data-plx] img {
+    animation: kb-loop 22s var(--ease-soft) infinite alternate;
+  }
+  .dev .bg img { animation-duration: 30s; }
+  /* reveal-clip figures start the loop once revealed, so it doesn't fight the clip-in */
+  .ch-fig.reveal-clip.in .plx img,
+  .pent-feature .pf-img.reveal-clip.in img {
+    animation: kb-loop 25s var(--ease-soft) infinite alternate;
+  }
+  /* stagger the cadence so they don't all pulse in unison */
+  .rail .ri:nth-child(3n) img { animation-duration: 27s; }
+  .rail .ri:nth-child(3n+1) img { animation-duration: 18s; }
+  .res-card:nth-child(2n) .res-thumb img { animation-duration: 26s; }
+  .trio .t:nth-child(2) img { animation-duration: 19s; }
+}
+
 /* band / chapter figure videos (native autoplay + loop) */
 .band video.lazyvid, .ch-fig video.lazyvid { opacity: 0; transition: opacity 1.1s var(--ease-soft); }
 .band video.lazyvid.playing, .ch-fig video.lazyvid.playing { opacity: 1; }
