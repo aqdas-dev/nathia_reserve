@@ -44,30 +44,6 @@
     }
   })();
 
-  // ---------- hero still cross-dissolve (interim, until the film masters land) ----------
-  // Fades between a few approved facade renders so the static hero feels alive.
-  // Holds on the first (preloaded) frame for reduced-motion / save-data.
-  (function () {
-    var bg = document.getElementById("heroBg");
-    if (!bg) return;
-    var slides = $all(".hero-slide", bg);
-    if (slides.length < 2 || reduceMotion || saveData) return;
-    var i = 0, timer = null;
-    function tick() {
-      slides[i].classList.remove("on");
-      i = (i + 1) % slides.length;
-      slides[i].classList.add("on");
-    }
-    function start() { if (!timer) timer = setInterval(tick, 6000); }
-    function stop() { if (timer) { clearInterval(timer); timer = null; } }
-    start();
-    // only cycle while the hero is on screen; pause when the tab is hidden
-    if ("IntersectionObserver" in window) {
-      new IntersectionObserver(function (es) { es[0].isIntersecting ? start() : stop(); }, { threshold: 0.05 }).observe(bg);
-    }
-    document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
-  })();
-
   // ---------- reveal on scroll ----------
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) {

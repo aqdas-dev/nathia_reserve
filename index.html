@@ -90,7 +90,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
 
-<link rel="stylesheet" href="./dist/output.css?v=14">
+<link rel="stylesheet" href="./dist/output.css?v=18">
 </head>
 <body>
 
@@ -135,9 +135,9 @@
 <header class="hero" id="top">
   <div class="hero-bg" id="heroBg">
     <img class="hero-slide on" src="./src/assets/media/hero/hero-poster.webp" alt="The Nathia Reserve at blue hour, on the main Nathia Gali road above the pine forest" fetchpriority="high" />
-    <img class="hero-slide" src="./src/assets/media/hero/hero-dusk.webp" alt="" loading="lazy" decoding="async" />
-    <img class="hero-slide" src="./src/assets/media/hero/hero-night.webp" alt="" loading="lazy" decoding="async" />
-    <img class="hero-slide" src="./src/assets/media/hero/hero-day.webp" alt="" loading="lazy" decoding="async" />
+    <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="./src/assets/media/hero/hero-poster.webp" aria-hidden="true">
+      <source src="./src/assets/media/hero/hero_loop.mp4?v=21" type="video/mp4" />
+    </video>
   </div>
   <div class="hero-inner">
     <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">The Nathia Reserve — Luxury Apartments &amp; Apartment Hotel in Nathia Gali, by Elevate Holdings</h1>
@@ -242,7 +242,12 @@
       </div>
     </div>
     <div class="pent-feature reveal">
-      <div class="pf-img reveal-clip"><img src="./src/assets/media/residences/penthouse.webp" alt="Sky Penthouse private plunge pool terrace overlooking the valley at dusk" loading="lazy" decoding="async" /></div>
+      <div class="pf-img reveal-clip">
+        <img class="vposter" src="./src/assets/media/residences/penthouse.webp" alt="Sky Penthouse private plunge pool terrace overlooking the valley at dusk" loading="lazy" decoding="async" />
+        <video class="bandvid" autoplay muted loop playsinline preload="auto" poster="./src/assets/media/residences/penthouse.webp" aria-hidden="true">
+          <source src="./src/assets/media/estate/a_home_above_the_clouds.mp4?v=21" type="video/mp4" />
+        </video>
+      </div>
       <div class="pf-txt">
         <div class="eyebrow">The Penthouses</div>
         <h3 style="margin-top:12px">A home above the clouds.</h3>
@@ -291,6 +296,9 @@
     <div class="chapter">
       <div class="ch-fig reveal-clip">
         <img class="vposter" src="./src/assets/media/estate/pool-sunset.webp" alt="The heated infinity pool at sunset, overlooking the valley" loading="lazy" decoding="async" />
+        <video class="bandvid" autoplay muted loop playsinline preload="auto" poster="./src/assets/media/estate/pool-sunset.webp" aria-hidden="true">
+          <source src="./src/assets/media/estate/the_water.mp4?v=21" type="video/mp4" />
+        </video>
         <span class="tag">The Infinity Edge</span>
       </div>
       <div class="ch-txt reveal d1">
@@ -306,7 +314,13 @@
     </div>
 
     <div class="chapter rev">
-      <div class="ch-fig reveal-clip"><div class="plx" data-plx="0.1"><img src="./src/assets/media/estate/spa-curtain.webp" alt="Spa relaxation hall behind a curtain of falling water at sunset" loading="lazy" decoding="async" /></div><span class="tag">The Spa</span></div>
+      <div class="ch-fig reveal-clip">
+        <img class="vposter" src="./src/assets/media/estate/spa-curtain.webp" alt="Spa relaxation hall behind a curtain of falling water at sunset" loading="lazy" decoding="async" />
+        <video class="bandvid" autoplay muted loop playsinline preload="auto" poster="./src/assets/media/estate/spa-curtain.webp" aria-hidden="true">
+          <source src="./src/assets/media/estate/the_Spa_an_sauna.mp4?v=21" type="video/mp4" />
+        </video>
+        <span class="tag">The Spa</span>
+      </div>
       <div class="ch-txt reveal d1">
         <div class="eyebrow">Chapter II</div>
         <h3>The Spa &amp; Sauna</h3>
@@ -357,7 +371,13 @@
     </div>
 
     <div class="chapter rev">
-      <div class="ch-fig reveal-clip"><div class="plx" data-plx="0.1"><img src="./src/assets/media/estate/dining-night.webp" alt="Signature restaurant interior at night" loading="lazy" decoding="async" /></div><span class="tag">The Table</span></div>
+      <div class="ch-fig reveal-clip">
+        <img class="vposter" src="./src/assets/media/estate/dining-night.webp" alt="Signature restaurant interior at night" loading="lazy" decoding="async" />
+        <video class="bandvid" autoplay muted loop playsinline preload="auto" poster="./src/assets/media/estate/dining-night.webp" aria-hidden="true">
+          <source src="./src/assets/media/estate/the_table.mp4?v=21" type="video/mp4" />
+        </video>
+        <span class="tag">The Table</span>
+      </div>
       <div class="ch-txt reveal d1">
         <div class="eyebrow">Chapter V</div>
         <h3>The Table</h3>
@@ -388,8 +408,8 @@
 
   <div class="wrap">
     <div class="trio reveal">
-      <div class="t"><img src="./src/assets/media/estate/gym.webp" alt="Fitness pavilion with mountain views" loading="lazy" decoding="async" /><span class="ts">Movement</span><span class="tt">The Fitness Pavilion</span></div>
-      <div class="t"><img src="./src/assets/media/estate/yoga-zen.webp" alt="Yoga studio with a glass wall onto the forest" loading="lazy" decoding="async" /><span class="ts">Stillness</span><span class="tt">The Yoga Studio</span></div>
+      <div class="t"><video class="bandvid" autoplay muted loop playsinline preload="auto" poster="./src/assets/media/estate/gym.webp" aria-hidden="true"><source src="./src/assets/media/estate/the_fitness_pavilion.mp4?v=21" type="video/mp4" /></video><span class="ts">Movement</span><span class="tt">The Fitness Pavilion</span></div>
+      <div class="t"><video class="bandvid" autoplay muted loop playsinline preload="auto" poster="./src/assets/media/estate/yoga-zen.webp" aria-hidden="true"><source src="./src/assets/media/estate/yoga_studio.mp4?v=21" type="video/mp4" /></video><span class="ts">Stillness</span><span class="tt">The Yoga Studio</span></div>
       <div class="t"><video class="bandvid" autoplay muted loop playsinline preload="auto" poster="./src/assets/media/estate/reception.webp"><source src="./src/assets/media/estate/reception.mp4?v=14" type="video/mp4" /></video><span class="ts">Welcome</span><span class="tt">The Grand Lobby</span></div>
     </div>
 
@@ -583,6 +603,6 @@
 <!-- LIGHTBOX -->
 <div class="lb" id="lb"><span class="lbx">&times;</span><img id="lbImg" src="" alt="Expanded view" /></div>
 
-<script src="./src/main.js?v=14"></script>
+<script src="./src/main.js?v=17"></script>
 </body>
 </html>

@@ -250,6 +250,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
 .hero-bg video, .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+/* the playing film sits ABOVE its static poster <img> */
+.hero-bg video { position: absolute; inset: 0; z-index: 1; }
 /* cross-dissolve stack: frames fade between one another (F07→F12→F02→F15) */
 .hero-bg .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.6s var(--ease-soft); will-change: opacity; }
 .hero-bg .hero-slide.on { opacity: 1; }
@@ -257,7 +259,7 @@ html.no-js .hero-bg .hero-slide { opacity: 0; }
 html.no-js .hero-bg .hero-slide.on { opacity: 1; }
 /* directional scrim: darker at the lower-left where the lockup sits */
 .hero-bg::after {
-  content: ""; position: absolute; inset: 0;
+  content: ""; position: absolute; inset: 0; z-index: 2;
   background:
     linear-gradient(180deg, rgba(46,34,5,.44) 0%, rgba(46,34,5,.1) 38%, rgba(46,34,5,.28) 62%, rgba(46,34,5,.82) 100%),
     linear-gradient(75deg, rgba(46,34,5,.6) 0%, rgba(46,34,5,.12) 46%, transparent 70%);
@@ -343,7 +345,8 @@ html.no-js .hero-bg .hero-slide.on { opacity: 1; }
 /* penthouse feature: a dark editorial plate crowning the list */
 .pent-feature { display: grid; grid-template-columns: 1.2fr 1fr; gap: 0; margin-top: clamp(60px, 8vw, 96px); background: var(--color-olive-deepest); color: var(--color-cream); overflow: hidden; }
 .pent-feature .pf-img { position: relative; min-height: 420px; overflow: hidden; }
-.pent-feature .pf-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pent-feature .pf-img img, .pent-feature .pf-img video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pent-feature .pf-img video { z-index: 1; }
 .pent-feature .pf-txt { padding: clamp(40px, 5.5vw, 76px); display: flex; flex-direction: column; justify-content: center; }
 .pent-feature .pf-txt .eyebrow { color: var(--color-sand-bright); }
 .pent-feature h3 { font-size: clamp(28px, 3.2vw, 44px); font-weight: 300; }
@@ -403,8 +406,7 @@ html.no-js .hero-bg .hero-slide.on { opacity: 1; }
   }
   .dev .bg img { animation-duration: 30s; }
   /* reveal-clip figures start the loop once revealed, so it doesn't fight the clip-in */
-  .ch-fig.reveal-clip.in .plx img,
-  .pent-feature .pf-img.reveal-clip.in img {
+  .ch-fig.reveal-clip.in .plx img {
     animation: kb-loop 25s var(--ease-soft) infinite alternate;
   }
   /* stagger the cadence so they don't all pulse in unison */
