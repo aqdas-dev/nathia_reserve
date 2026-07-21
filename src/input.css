@@ -181,20 +181,6 @@ html.no-js .lines .ln > span { transform: none; }
 #progress { position: fixed; top: 0; left: 0; right: 0; height: 1px; z-index: 70; background: transparent; }
 #progress i { display: block; height: 100%; width: 100%; background: var(--color-olive); transform: scaleX(0); transform-origin: 0 50%; }
 
-/* ---------- preloader (dark, so the cream mark shows) ---------- */
-#loader {
-  position: fixed; inset: 0; z-index: 200; background: var(--color-olive-deepest);
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 34px;
-  transition: opacity 0.9s ease, visibility 0.9s; animation: loaderkill 0.7s 2.2s forwards;
-}
-@keyframes loaderkill { to { opacity: 0; visibility: hidden; } }
-#loader img { width: min(280px, 56vw); opacity: 0; animation: loadrise 1.2s 0.1s both; }
-#loader .lbar { width: min(200px, 42vw); height: 1px; background: var(--cream-faint); overflow: hidden; }
-#loader .lbar i { display: block; height: 100%; width: 100%; background: var(--color-sand); transform: scaleX(0); transform-origin: 0 50%; animation: lfill 1.5s 0.2s ease-out both; }
-#loader.done { opacity: 0; visibility: hidden; }
-@keyframes loadrise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
-@keyframes lfill { to { transform: scaleX(1); } }
-
 /* ---------- nav ----------
    Transparent over the hero; on scroll it settles into a slim, quiet olive
    ribbon (near-invisible chrome) so the cream mark stays legible throughout. */
@@ -444,10 +430,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 /* ---------- roi (cream, oversized editorial numeral) ---------- */
 .roi { background: var(--color-cream); color: var(--color-ink); }
 .roi-grid { display: grid; grid-template-columns: auto 1fr; gap: clamp(48px, 8vw, 130px); align-items: center; }
-.roi-big { text-align: left; padding-right: clamp(30px, 5vw, 70px); border-right: 1px solid var(--hair); position: relative; }
-.roi-big .upto { display: block; text-align: center; font-family: var(--font-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.38em; text-transform: uppercase; color: var(--color-olive); margin-bottom: 10px; }
-.roi-big .pct { font-family: var(--font-serif); font-weight: 400; font-size: clamp(110px, 15vw, 200px); line-height: 0.86; color: var(--color-olive-deep); }
-.roi-big .pct sup { font-size: 0.32em; vertical-align: 0.95em; letter-spacing: 0; color: var(--color-olive); }
+.roi-big { text-align: center; padding-right: clamp(30px, 5vw, 70px); border-right: 1px solid var(--hair); position: relative; }
+.roi-big .upto { display: block; text-align: center; font-family: var(--font-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.38em; text-transform: uppercase; color: var(--color-olive); margin-bottom: 14px; }
+.roi-big .pct { font-family: var(--font-serif); font-weight: 400; font-size: clamp(110px, 15vw, 200px); line-height: 0.86; color: var(--color-olive-deep); margin-top: clamp(-60px, -4.5vw, -34px); }
+.roi-big .pct sup { font-size: 0.32em; vertical-align: -0.05em; letter-spacing: 0; color: var(--color-olive); }
 .roi-big .cap { font-size: 12px; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink-soft); margin-top: 14px; }
 .roi-txt .eyebrow { color: var(--color-olive); }
 .roi-txt h2 { color: var(--color-olive-deep); }
@@ -574,7 +560,6 @@ html.no-js .jarrow, html.no-js .jdots { display: none; }
   .lines .ln > span { transform: none; transition: none; }
   .marquee .track, .rail { animation: none; }
   .jslide img { transition: none; }
-  #loader { display: none; }
   * { scroll-behavior: auto; }
 }
 

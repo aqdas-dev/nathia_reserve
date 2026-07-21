@@ -19,19 +19,6 @@
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $all(sel, ctx) { return [].slice.call((ctx || document).querySelectorAll(sel)); }
 
-  // ---------- preloader ----------
-  // Storage access is wrapped: in-app browsers (WhatsApp/Instagram) can block it.
-  (function () {
-    var l = document.getElementById("loader");
-    if (!l) return;
-    var seen = false;
-    try { seen = !!sessionStorage.getItem("nr_seen"); sessionStorage.setItem("nr_seen", "1"); } catch (e) {}
-    if (reduceMotion || seen) { l.style.display = "none"; return; }
-    var done = function () { l.classList.add("done"); };
-    window.addEventListener("load", function () { setTimeout(done, 400); });
-    setTimeout(done, 1900); // hard cap even if `load` never fires
-  })();
-
   // ---------- reveal on scroll ----------
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) {
