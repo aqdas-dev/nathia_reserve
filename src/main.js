@@ -15,7 +15,6 @@
     "https://script.google.com/macros/s/AKfycbzYcYqBJr9nGtFVQ-e8t2EelsHtoGsoeEpelXKYDZqIzw4M2R6tZbwb7CjRjw-yzJLBaw/exec";
 
   var reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var saveData = navigator.connection && navigator.connection.saveData;
   function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $all(sel, ctx) { return [].slice.call((ctx || document).querySelectorAll(sel)); }
@@ -31,17 +30,6 @@
     var done = function () { l.classList.add("done"); };
     window.addEventListener("load", function () { setTimeout(done, 400); });
     setTimeout(done, 1900); // hard cap even if `load` never fires
-  })();
-
-  // ---------- hero video: respect save-data / reduced motion ----------
-  (function () {
-    var v = document.getElementById("heroVideo");
-    if (!v) return;
-    if (reduceMotion || saveData) {
-      v.removeAttribute("autoplay");
-      v.preload = "none";
-      try { v.pause(); } catch (e) {}
-    }
   })();
 
   // ---------- reveal on scroll ----------
@@ -71,46 +59,43 @@
   }, { threshold: 0.6 });
   $all("[data-count]").forEach(function (el) { cio.observe(el); });
 
-  // ---------- band / chapter videos: native autoplay + loop ----------
+  // ---------- band / chapter videos: native autoplay + loop, for everyone ----------
   // Looping is owned by the HTML `autoplay muted loop playsinline` attributes so
-  // it is bulletproof across browsers. JS only (a) honours reduced-motion /
-  // save-data by pausing and showing the poster, and (b) resumes if something
-  // external ever pauses the clip (tab switch, OS media key) so it always loops
-  // while the user is on the page.
+  // it is bulletproof across browsers. JS only (a) resumes if something external
+  // ever pauses the clip (tab switch, OS media key) so it always loops while the
+  // user is on the page, and (b) fades each clip in once it's actually playing.
   var bandVids = $all("video.bandvid");
-  function kick(v) { if (reduceMotion || saveData) return; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
-  if (reduceMotion || saveData) {
-    bandVids.forEach(function (v) { v.removeAttribute("autoplay"); try { v.pause(); } catch (e) {} });
-  } else {
-    bandVids.forEach(function (v) {
-      kick(v);
-      v.addEventListener("loadeddata", function () { kick(v); });
-      v.addEventListener("canplay", function () { kick(v); });
-      // native `loop` never fires pause on its own — a pause here is external
-      // (tab switch, OS media key), so resume unless the tab is actually hidden.
-      v.addEventListener("pause", function () { if (!document.hidden) kick(v); });
-    });
-    // Some browsers only allow muted autoplay once the element is in the viewport.
-    if ("IntersectionObserver" in window) {
-      var pvo = new IntersectionObserver(function (es) {
-        es.forEach(function (e) { if (e.isIntersecting) kick(e.target); });
-      }, { threshold: 0.05 });
-      bandVids.forEach(function (v) { pvo.observe(v); });
-    }
-    // First user gesture unlocks any gesture-gated autoplay policy.
-    var unlock = function () { bandVids.forEach(kick); };
-    ["pointerdown", "touchstart", "scroll", "keydown"].forEach(function (e) {
-      window.addEventListener(e, unlock, { once: true, passive: true });
-    });
-    document.addEventListener("visibilitychange", function () { if (!document.hidden) bandVids.forEach(kick); });
+  function kick(v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+  bandVids.forEach(function (v) {
+    kick(v);
+    v.addEventListener("loadeddata", function () { kick(v); });
+    v.addEventListener("canplay", function () { kick(v); });
+    // native `loop` never fires pause on its own — a pause here is external
+    // (tab switch, OS media key), so resume unless the tab is actually hidden.
+    v.addEventListener("pause", function () { if (!document.hidden) kick(v); });
+    // fade in only once real frames are decoding (not just loaded)
+    v.addEventListener("playing", function () { v.classList.add("playing"); });
+  });
+  // Some browsers only allow muted autoplay once the element is in the viewport.
+  if ("IntersectionObserver" in window) {
+    var pvo = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) kick(e.target); });
+    }, { threshold: 0.05 });
+    bandVids.forEach(function (v) { pvo.observe(v); });
   }
+  // First user gesture unlocks any gesture-gated autoplay policy.
+  var unlock = function () { bandVids.forEach(kick); };
+  ["pointerdown", "touchstart", "scroll", "keydown"].forEach(function (e) {
+    window.addEventListener(e, unlock, { once: true, passive: true });
+  });
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) bandVids.forEach(kick); });
 
   // hero video pause offscreen too
   (function () {
     var hv = document.getElementById("heroVideo");
     if (!hv) return;
+    hv.addEventListener("playing", function () { hv.classList.add("playing"); });
     new IntersectionObserver(function (es) {
-      if (reduceMotion || saveData) return;
       if (es[0].isIntersecting) { hv.play().catch(function () {}); } else { hv.pause(); }
     }, { threshold: 0.05 }).observe(hv);
   })();

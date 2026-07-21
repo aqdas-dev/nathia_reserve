@@ -204,9 +204,10 @@ nav#nav.scrolled {
   background: rgba(46, 34, 5, 0.72); backdrop-filter: blur(18px) saturate(1.1); -webkit-backdrop-filter: blur(18px) saturate(1.1);
   border-bottom: 1px solid var(--hair-cream); padding: 12px 28px;
 }
-.nav-logo img { height: 46px; width: auto; transition: height 0.6s var(--ease-soft); }
-nav#nav.scrolled .nav-logo img { height: 36px; }
-.nav-links { position: absolute; left: 50%; transform: translateX(-50%); display: flex; gap: 40px; }
+.nav-logo { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.nav-logo img { height: 64px; width: auto; display: block; transition: height 0.6s var(--ease-soft); }
+nav#nav.scrolled .nav-logo img { height: 46px; }
+.nav-links { display: flex; gap: 40px; }
 .nav-links a {
   position: relative; font-size: 12px; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase;
   color: var(--cream-dim); padding: 6px 0; transition: color 0.5s var(--ease-soft);
@@ -218,7 +219,7 @@ nav#nav.scrolled .nav-logo img { height: 36px; }
 .nav-links a:hover { color: var(--color-cream); }
 .nav-links a:hover::after { transform: scaleX(1); transform-origin: 0 50%; }
 .nav-cta { font-size: 11.5px; padding: 13px 26px; min-height: 42px; }
-.nav-right { display: flex; align-items: center; gap: 14px; }
+.nav-right { display: flex; align-items: center; gap: 14px; margin-left: auto; }
 
 /* mobile menu */
 .nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 6px; width: 44px; height: 44px; padding: 0; background: transparent; border: 0; cursor: pointer; }
@@ -249,14 +250,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   padding: 130px var(--gutter) clamp(76px, 10vh, 128px);
 }
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
-.hero-bg video, .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-/* the playing film sits ABOVE its static poster <img> */
-.hero-bg video { position: absolute; inset: 0; z-index: 1; }
-/* cross-dissolve stack: frames fade between one another (F07→F12→F02→F15) */
-.hero-bg .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.6s var(--ease-soft); will-change: opacity; }
-.hero-bg .hero-slide.on { opacity: 1; }
-html.no-js .hero-bg .hero-slide { opacity: 0; }
-html.no-js .hero-bg .hero-slide.on { opacity: 1; }
+.hero-bg video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 1; }
 /* directional scrim: darker at the lower-left where the lockup sits */
 .hero-bg::after {
   content: ""; position: absolute; inset: 0; z-index: 2;
@@ -275,16 +269,16 @@ html.no-js .hero-bg .hero-slide.on { opacity: 1; }
 .scrollcue .line::after { content: ""; position: absolute; left: 0; top: -40%; width: 100%; height: 40%; background: var(--color-sand); animation: cue 2.8s var(--ease-soft) infinite; }
 @keyframes cue { to { top: 110%; } }
 
-/* ---------- stats (icon cards on cream — readable, still editorial) ---------- */
+/* ---------- stats (a quiet fact strip, no boxes or icons ----------
+   Hairline dividers and a big serif numeral, matching the ROI section's
+   numeral treatment, rather than the icon-card pattern this replaced. */
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 1.5vw, 22px); margin-top: clamp(60px, 8vw, 96px); }
-.stat { padding: clamp(32px, 3vw, 46px) clamp(18px, 2vw, 26px); border: 1px solid var(--hair-strong); background: rgba(255, 255, 255, 0.32); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; transition: border-color 0.5s var(--ease-soft), background 0.5s var(--ease-soft); }
-.stat:hover { border-color: var(--color-sand); background: rgba(255, 255, 255, 0.55); }
-.stat-ic { display: inline-flex; color: var(--color-olive); margin-bottom: clamp(18px, 2.2vw, 26px); }
-.stat-ic svg { width: 32px; height: 32px; display: block; }
-.stat .n { font-family: var(--font-serif); font-weight: 600; font-size: clamp(46px, 5vw, 68px); color: var(--color-olive-deep); line-height: 1; font-variant-numeric: tabular-nums; }
-.stat .n span { font-size: 0.42em; vertical-align: 0.32em; letter-spacing: 0.02em; color: var(--color-olive); font-weight: 500; }
+.stat { padding: clamp(8px, 1vw, 14px) clamp(18px, 2vw, 26px); border-left: 1px solid var(--hair); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.stat:first-child { border-left: 0; }
+.stat .n { font-family: var(--font-serif); font-weight: 500; font-size: clamp(48px, 5.2vw, 72px); color: var(--color-olive-deep); line-height: 1; font-variant-numeric: tabular-nums; }
+.stat .n span { font-size: 0.4em; vertical-align: 0.32em; letter-spacing: 0.02em; color: var(--color-olive); font-weight: 500; }
 .stat .n .upto { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-olive); margin-bottom: 10px; font-family: var(--font-sans); font-style: normal; }
-.stat .l { font-size: 12.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); margin-top: 18px; line-height: 1.45; }
+.stat .l { font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-top: 16px; line-height: 1.4; }
 
 /* ---------- marquee (quiet cream strip, not a dark band) ---------- */
 .marquee { background: var(--color-cream-soft); border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); overflow: hidden; padding: 22px 0; }
@@ -298,6 +292,8 @@ html.no-js .hero-bg .hero-slide.on { opacity: 1; }
 /* the playing video must sit ABOVE its static poster <img> */
 .band .bandbg video { position: absolute; inset: 0; z-index: 1; }
 .band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(46,34,5,.1) 24%, rgba(46,34,5,.72) 100%); }
+/* snow/night footage runs brighter than the other bands — a heavier, more even scrim keeps the text legible */
+.band.band-dim::after { background: linear-gradient(180deg, rgba(46,34,5,.4) 0%, rgba(46,34,5,.3) 32%, rgba(46,34,5,.86) 100%); }
 .band .band-inner { position: relative; z-index: 2; padding-bottom: clamp(56px, 7vw, 96px); width: 100%; }
 .band .band-inner .eyebrow { color: var(--color-sand-bright); }
 .band h3 { font-size: clamp(32px, 4.6vw, 58px); font-weight: 300; max-width: 20ch; color: var(--color-cream); }
@@ -331,22 +327,25 @@ html.no-js .hero-bg .hero-slide.on { opacity: 1; }
 .jarrow.next { right: clamp(14px, 2.4vw, 40px); }
 
 /* ---------- residences (card grid on cream) ----------
-   A three-column grid (5 cards → 3 + 2) contained in the section so the cards
-   align with the heading. Cards use the renders' native ~180/151 landscape
-   ratio, so the images are shown whole, not cropped. */
-.res-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(22px, 2.4vw, 44px) clamp(22px, 2.2vw, 40px); margin-top: clamp(56px, 7vw, 92px); }
+   A two-column grid; the 5th (final) card spans both columns as a wide,
+   featured close, with an aspect-ratio tuned so its height still matches
+   the single-column cards rather than doubling with the width. Name/type
+   sit layered over the image, on a scrim, like the estate trio cards. */
+.res-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(22px, 2.4vw, 44px) clamp(22px, 2.2vw, 40px); margin-top: clamp(56px, 7vw, 92px); }
+.res-card:nth-child(5) { grid-column: 1 / -1; }
+.res-card:nth-child(5) .res-thumb { aspect-ratio: 12 / 5; }
 .res-card { display: flex; flex-direction: column; }
-.res-card .res-thumb { width: 100%; aspect-ratio: 180 / 151; overflow: hidden; margin-bottom: 20px; }
-.res-card .res-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.8s var(--ease-lux); filter: saturate(0.92); }
-.res-card:hover .res-thumb img { transform: scale(1.05); }
-.res-name { font-family: var(--font-serif); font-weight: 400; font-size: clamp(27px, 2.2vw, 37px); color: var(--color-olive-deep); line-height: 1.06; }
-.res-type { font-size: 11.5px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--color-olive); margin-top: 12px; }
+.res-card .res-thumb { position: relative; width: 100%; aspect-ratio: 180 / 151; overflow: hidden; }
+.res-card .res-thumb img, .res-card .res-thumb video { width: 100%; height: 100%; object-fit: cover; transition: transform 1.8s var(--ease-lux); filter: saturate(0.92); }
+.res-card:hover .res-thumb img, .res-card:hover .res-thumb video { transform: scale(1.05); }
+.res-card .res-thumb::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(46,34,5,.8) 100%); }
+.res-name { position: absolute; left: 20px; right: 20px; bottom: 42px; z-index: 2; font-family: var(--font-serif); font-weight: 400; font-size: clamp(22px, 1.8vw, 30px); color: var(--color-cream); line-height: 1.06; }
+.res-type { position: absolute; left: 20px; bottom: 18px; z-index: 2; font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--color-sand-bright); }
 
 /* penthouse feature: a dark editorial plate crowning the list */
 .pent-feature { display: grid; grid-template-columns: 1.2fr 1fr; gap: 0; margin-top: clamp(60px, 8vw, 96px); background: var(--color-olive-deepest); color: var(--color-cream); overflow: hidden; }
 .pent-feature .pf-img { position: relative; min-height: 420px; overflow: hidden; }
-.pent-feature .pf-img img, .pent-feature .pf-img video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.pent-feature .pf-img video { z-index: 1; }
+.pent-feature .pf-img video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .pent-feature .pf-txt { padding: clamp(40px, 5.5vw, 76px); display: flex; flex-direction: column; justify-content: center; }
 .pent-feature .pf-txt .eyebrow { color: var(--color-sand-bright); }
 .pent-feature h3 { font-size: clamp(28px, 3.2vw, 44px); font-weight: 300; }
@@ -365,8 +364,6 @@ html.no-js .hero-bg .hero-slide.on { opacity: 1; }
 .chapter:first-of-type { margin-top: clamp(60px, 8vw, 110px); }
 .chapter.rev .ch-txt { order: -1; }
 .ch-fig { position: relative; overflow: hidden; min-height: 480px; background: var(--color-cream-soft); }
-.ch-fig .plx { position: absolute; inset: -12% 0; will-change: transform; }
-.ch-fig .plx img { width: 100%; height: 100%; object-fit: cover; }
 .ch-fig .tag { position: absolute; left: 18px; bottom: 16px; z-index: 3; font-family: var(--font-sans); font-size: 9.5px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: var(--color-cream); background: rgba(46,34,5,.42); backdrop-filter: blur(8px); padding: 8px 15px; }
 .ch-txt .eyebrow { color: var(--color-olive); }
 .ch-txt h3 { font-size: clamp(30px, 3.6vw, 48px); font-weight: 300; color: var(--color-olive-deep); margin-top: 14px; }
@@ -383,10 +380,9 @@ html.no-js .hero-bg .hero-slide.on { opacity: 1; }
 .trio .t .tt { position: absolute; left: 22px; bottom: 20px; z-index: 2; font-family: var(--font-serif); font-weight: 400; font-size: 27px; color: var(--color-cream); }
 .trio .t .ts { position: absolute; left: 22px; bottom: 54px; z-index: 2; font-size: 11px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--color-sand-bright); }
 
-/* slow "Ken Burns" drift on the hero + still full-bleed bands only */
+/* slow "Ken Burns" drift on still full-bleed bands only */
 @keyframes kenburns { from { transform: scale(1.02); } to { transform: scale(1.1); } }
 @media (prefers-reduced-motion: no-preference) {
-  .hero-bg img { animation: kenburns 26s ease-in-out infinite alternate; transform-origin: 58% 42%; will-change: transform; }
   .band .bandbg:not([data-plx]) > img:only-child { animation: kenburns 34s ease-in-out infinite alternate; transform-origin: 50% 50%; will-change: transform; }
 }
 
@@ -396,7 +392,6 @@ html.no-js .hero-bg .hero-slide.on { opacity: 1; }
    drift from ever exposing an edge). Disabled for reduced-motion. */
 @keyframes kb-loop { from { transform: scale(1.08) translate(-1%, 0.6%); } to { transform: scale(1.035) translate(1%, -0.6%); } }
 @media (prefers-reduced-motion: no-preference) {
-  .res-card .res-thumb img,
   .rail .ri img,
   .trio .t img,
   .founder-fig .ff img,
@@ -405,21 +400,20 @@ html.no-js .hero-bg .hero-slide.on { opacity: 1; }
     animation: kb-loop 22s var(--ease-soft) infinite alternate;
   }
   .dev .bg img { animation-duration: 30s; }
-  /* reveal-clip figures start the loop once revealed, so it doesn't fight the clip-in */
-  .ch-fig.reveal-clip.in .plx img {
-    animation: kb-loop 25s var(--ease-soft) infinite alternate;
-  }
   /* stagger the cadence so they don't all pulse in unison */
   .rail .ri:nth-child(3n) img { animation-duration: 27s; }
   .rail .ri:nth-child(3n+1) img { animation-duration: 18s; }
-  .res-card:nth-child(2n) .res-thumb img { animation-duration: 26s; }
   .trio .t:nth-child(2) img { animation-duration: 19s; }
 }
 
-/* band / chapter figure videos (native autoplay + loop) */
-.band video.lazyvid, .ch-fig video.lazyvid { opacity: 0; transition: opacity 1.1s var(--ease-soft); }
-.band video.lazyvid.playing, .ch-fig video.lazyvid.playing { opacity: 1; }
-.vposter { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* video sections with a backing poster image: fade the film in once real
+   playback begins, so the swap from still to footage is a dissolve, not a cut */
+.band .bandbg video.bandvid, .ch-fig video.bandvid, .pent-feature .pf-img video.bandvid, #heroVideo {
+  opacity: 0; transition: opacity 1.1s var(--ease-soft);
+}
+.band .bandbg video.bandvid.playing, .ch-fig video.bandvid.playing, .pent-feature .pf-img video.bandvid.playing, #heroVideo.playing {
+  opacity: 1;
+}
 .ch-fig video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
 .ch-fig .tag { z-index: 3; }
 
@@ -448,7 +442,7 @@ html.no-js .hero-bg .hero-slide.on { opacity: 1; }
 .roi { background: var(--color-cream); color: var(--color-ink); }
 .roi-grid { display: grid; grid-template-columns: auto 1fr; gap: clamp(48px, 8vw, 130px); align-items: center; }
 .roi-big { text-align: left; padding-right: clamp(30px, 5vw, 70px); border-right: 1px solid var(--hair); position: relative; }
-.roi-big .upto { display: block; font-family: var(--font-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.38em; text-transform: uppercase; color: var(--color-olive); margin-bottom: 10px; }
+.roi-big .upto { display: block; text-align: center; font-family: var(--font-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.38em; text-transform: uppercase; color: var(--color-olive); margin-bottom: 10px; }
 .roi-big .pct { font-family: var(--font-serif); font-weight: 400; font-size: clamp(110px, 15vw, 200px); line-height: 0.86; color: var(--color-olive-deep); }
 .roi-big .pct sup { font-size: 0.32em; vertical-align: 0.95em; letter-spacing: 0; color: var(--color-olive); }
 .roi-big .cap { font-size: 12px; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink-soft); margin-top: 14px; }
@@ -594,13 +588,13 @@ html.no-js .jarrow, html.no-js .jdots { display: none; }
   .chapter.rev .ch-txt { order: 0; }
   .ch-fig { min-height: 360px; }
   .trio { grid-template-columns: 1fr 1fr; }
-  .res-grid { grid-template-columns: repeat(2, 1fr); }
   .band { min-height: 72vh; }
 }
 @media (max-width: 640px) {
   .stats { grid-template-columns: 1fr 1fr; }
-  .stat { padding: clamp(22px, 5vw, 30px) clamp(16px, 4vw, 22px); }
-  .stat-ic svg { width: 24px; height: 24px; }
+  .stat { padding: clamp(20px, 5vw, 28px) clamp(16px, 4vw, 22px); border-left: 0; border-top: 1px solid var(--hair); }
+  .stat:nth-child(-n+2) { border-top: 0; }
+  .stat:nth-child(odd) { border-right: 1px solid var(--hair); }
   .trio { grid-template-columns: 1fr; }
   .res-grid { grid-template-columns: 1fr; gap: clamp(28px, 8vw, 44px); }
   .frow { grid-template-columns: 1fr; }
@@ -619,7 +613,6 @@ html.no-js .jarrow, html.no-js .jdots { display: none; }
 /* ---------- modern rounding (applied last so it wins) ---------- */
 .btn, .btn-submit, .nav-cta { border-radius: var(--radius-sm); }
 .res-card .res-thumb, .rail .ri, .trio .t, .founder-fig .ff { border-radius: var(--radius); overflow: hidden; }
-.stat { border-radius: var(--radius); }
 .ch-fig, .pent-feature, .card { border-radius: var(--radius-lg); overflow: hidden; }
 .card::before { border-radius: calc(var(--radius-lg) - 6px); }
 .jarrow { border-radius: 50%; }
