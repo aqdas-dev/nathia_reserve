@@ -40,7 +40,7 @@
   --ease-soft: cubic-bezier(0.25, 0.8, 0.25, 1);
 
   /* ---- marquee (used via .animate-marquee) ---- */
-  --animate-marquee: marquee 90s linear infinite;
+  --animate-marquee: marquee 40s linear infinite;
   @keyframes marquee {
     to { transform: translateX(-50%); }
   }
@@ -189,6 +189,15 @@ nav#nav {
   justify-content: space-between; padding: 22px 28px;
   transition: background 0.6s var(--ease-soft), padding 0.6s var(--ease-soft), border-color 0.6s var(--ease-soft);
 }
+/* gradient assist over the hero: bleeds well below the nav's own box so the
+   centered logo and the CTA/hamburger on the right both sit on real contrast,
+   not just the thin strip of the nav bar itself */
+nav#nav::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 170px; z-index: -1;
+  background: linear-gradient(180deg, rgba(43, 40, 34, 0.6) 0%, rgba(43, 40, 34, 0.32) 45%, transparent 100%);
+  pointer-events: none; transition: opacity 0.6s var(--ease-soft);
+}
+nav#nav.scrolled::before { opacity: 0; }
 nav#nav.scrolled {
   background: rgba(43, 40, 34, 0.72); backdrop-filter: blur(18px) saturate(1.1); -webkit-backdrop-filter: blur(18px) saturate(1.1);
   border-bottom: 1px solid var(--hair-cream); padding: 12px 28px;
@@ -417,7 +426,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .railwrap { overflow: hidden; padding: clamp(90px, 12vw, 150px) 0; background: var(--color-cream-soft); }
 .railwrap .eyebrow { color: var(--color-olive); }
 .railwrap .wrap { margin-bottom: clamp(48px, 6vw, 76px); }
-.rail { display: flex; width: max-content; will-change: transform; animation: railslide 68s linear infinite; }
+.rail { display: flex; width: max-content; will-change: transform; animation: railslide 30s linear infinite; }
 /* pause only when the pointer is over the image row itself (JS toggles the
    class on the rail's own mouseenter/leave — not the heading/whitespace) */
 .rail.is-paused { animation-play-state: paused; }
